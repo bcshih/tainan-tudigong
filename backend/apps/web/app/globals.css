@@ -1,0 +1,1688 @@
+@import "tailwindcss";
+
+/* ============================================================
+   數位土地公 — Divine-Tech (神・科技) design tokens
+   Dark night-temple sanctum; divine negotiation as luminous ritual.
+   ============================================================ */
+:root {
+  --ink: #0b0e14;
+  --sanctum: #12161f;
+  --gold: #e8b04b;
+  --gold-glow: #f5d78e;
+  --vermillion: #c8442e;
+  --seal: #e5533d;
+  --jade: #4fa88b;
+  --ash: #c9ccd6;
+  --smoke: #6b7180;
+
+  --background: var(--ink);
+  --foreground: var(--ash);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-sanctum: var(--sanctum);
+  --color-gold: var(--gold);
+  --color-gold-glow: var(--gold-glow);
+  --color-vermillion: var(--vermillion);
+  --color-seal: var(--seal);
+  --color-jade: var(--jade);
+  --color-ash: var(--ash);
+  --color-smoke: var(--smoke);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-noto-serif-tc);
+  --font-sans: var(--font-noto-sans-tc);
+  --font-mono: var(--font-space-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-tc), "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background-color: var(--ink);
+  /* Layered radial gold / vermillion glows on near-black */
+  background-image:
+    radial-gradient(
+      60rem 60rem at 18% -8%,
+      rgba(232, 176, 75, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      48rem 48rem at 110% 12%,
+      rgba(200, 68, 46, 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      70rem 50rem at 50% 120%,
+      rgba(79, 168, 139, 0.08),
+      transparent 60%
+    );
+  background-attachment: fixed;
+  min-height: 100dvh;
+}
+
+/* Faint grain / noise overlay over everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Page shell / sanctum chrome
+   ============================================================ */
+.sanctum {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.1rem, 4vw, 2.5rem) 6rem;
+}
+
+.sanctum__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.sanctum__seal {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid rgba(232, 176, 75, 0.5);
+  border-radius: 8px;
+  color: var(--gold);
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  background: radial-gradient(circle at 50% 40%, rgba(200, 68, 46, 0.25), transparent);
+  box-shadow: inset 0 0 14px rgba(232, 176, 75, 0.18);
+}
+.sanctum__kicker {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+
+.sanctum__hero {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin: 1.5rem 0 0.6rem;
+  text-shadow: 0 0 26px rgba(245, 215, 142, 0.3);
+}
+.sanctum__lede {
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  color: var(--ash);
+  line-height: 1.9;
+  max-width: 34rem;
+}
+
+.sanctum__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.2rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 215, 142, 0.55);
+  background: linear-gradient(180deg, var(--seal), var(--vermillion));
+  color: #fff5e8;
+  text-decoration: none;
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  box-shadow: 0 10px 28px rgba(200, 68, 46, 0.4);
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+}
+.sanctum__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(232, 176, 75, 0.45), 0 14px 34px rgba(200, 68, 46, 0.5);
+}
+
+/* ---- Telemetry / ritual log strip for the demo theater ---- */
+.ritual-log {
+  margin-top: 2.4rem;
+  border-top: 1px solid rgba(107, 113, 128, 0.25);
+  padding-top: 1rem;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--smoke);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-height: 9rem;
+  overflow: hidden;
+}
+.ritual-log__line {
+  display: flex;
+  gap: 0.7rem;
+}
+.ritual-log__tick {
+  color: var(--vermillion);
+}
+.ritual-log__msg {
+  color: var(--ash);
+}
+.ritual-log__done {
+  color: var(--jade);
+}
+.ritual-log__err {
+  color: var(--seal);
+}
+
+.demo-replay {
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.demo-replay__status {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.demo-replay__pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold-glow);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.demo-replay__pulse[data-done="true"] {
+  background: var(--jade);
+  box-shadow: 0 0 10px var(--jade);
+  animation: none;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.demo-replay__btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(232, 176, 75, 0.45);
+  color: var(--gold);
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  padding: 0.55rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.demo-replay__btn:hover {
+  background: rgba(232, 176, 75, 0.1);
+  box-shadow: 0 0 16px rgba(232, 176, 75, 0.2);
+}
+
+/* Frames animate in as they arrive */
+.a2-card,
+.a2-list__item {
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   A2UI catalog component styles
+   ============================================================ */
+
+.a2-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.a2-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.a2-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.1rem;
+}
+.a2-list__item {
+  display: flex;
+}
+.a2-list__item > * {
+  width: 100%;
+}
+
+/* ---- Text ---- */
+.a2-text {
+  margin: 0;
+}
+.a2-text--h1 {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+  line-height: 1.18;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-shadow:
+    0 0 18px rgba(245, 215, 142, 0.35),
+    0 0 2px rgba(232, 176, 75, 0.6);
+}
+.a2-text--h2 {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  color: var(--gold-glow);
+}
+.a2-text--body {
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--ash);
+}
+.a2-text--caption {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.a2-text--score {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.a2-text--score::before {
+  content: "▌";
+  color: var(--vermillion);
+  font-size: 0.85em;
+}
+
+/* ---- Image ---- */
+.a2-image {
+  display: block;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid rgba(232, 176, 75, 0.3);
+}
+.a2-image--empty {
+  width: 100%;
+  height: 6rem;
+  border-radius: 6px;
+  border: 1px dashed rgba(107, 113, 128, 0.4);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ---- Icon ---- */
+.a2-icon {
+  color: var(--gold);
+  font-size: 1.1rem;
+  filter: drop-shadow(0 0 6px rgba(245, 215, 142, 0.5));
+}
+
+/* ---- Divider ---- */
+.a2-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.4rem 0;
+}
+.a2-divider::before,
+.a2-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 176, 75, 0.45),
+    transparent
+  );
+}
+.a2-divider__sigil {
+  color: var(--gold);
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* ---- Card: sanctum panel with gold filigree + inner glow ---- */
+.a2-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(232, 176, 75, 0.05), transparent 40%),
+    var(--sanctum);
+  border: 1px solid rgba(232, 176, 75, 0.28);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  box-shadow:
+    inset 0 0 28px rgba(232, 176, 75, 0.06),
+    0 14px 40px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+.a2-card::after {
+  /* faint vermillion incense glow rising from base */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -40%;
+  width: 80%;
+  height: 80%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 68, 46, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.a2-card__body {
+  position: relative;
+  z-index: 1;
+}
+.a2-card__corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--gold);
+  opacity: 0.7;
+  z-index: 2;
+}
+.a2-card__corner--tl {
+  top: 7px;
+  left: 7px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.a2-card__corner--tr {
+  top: 7px;
+  right: 7px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+.a2-card__corner--bl {
+  bottom: 7px;
+  left: 7px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+.a2-card__corner--br {
+  bottom: 7px;
+  right: 7px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* ---- Button: vermillion seal ---- */
+.a2-button-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.a2-button {
+  position: relative;
+  appearance: none;
+  border: 1px solid rgba(245, 215, 142, 0.55);
+  border-radius: 6px;
+  padding: 0.85rem 2.2rem;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--seal), var(--vermillion));
+  color: #fff5e8;
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  font-size: 1rem;
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+  box-shadow:
+    0 0 0 rgba(232, 176, 75, 0),
+    0 8px 22px rgba(200, 68, 46, 0.35);
+}
+.a2-button .a2-text {
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+.a2-button__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 120%,
+    rgba(245, 215, 142, 0.5),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.a2-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 26px rgba(232, 176, 75, 0.45),
+    0 12px 30px rgba(200, 68, 46, 0.5);
+}
+.a2-button:hover:not(:disabled) .a2-button__glow {
+  opacity: 1;
+}
+.a2-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+.a2-button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.55) brightness(0.7);
+  opacity: 0.7;
+}
+.a2-button__label {
+  position: relative;
+  z-index: 1;
+}
+.a2-button__hint {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--seal);
+}
+
+/* ---- TextField ---- */
+.a2-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.a2-field__label {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  color: var(--smoke);
+}
+.a2-field__shell {
+  position: relative;
+  display: block;
+}
+.a2-field__input {
+  width: 100%;
+  background: rgba(11, 14, 20, 0.7);
+  border: 1px solid rgba(107, 113, 128, 0.4);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  color: var(--ash);
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.a2-field__input::placeholder {
+  color: var(--smoke);
+}
+.a2-field__input:focus {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 1px rgba(232, 176, 75, 0.4),
+    0 0 22px rgba(232, 176, 75, 0.2);
+}
+.a2-field__rule {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.a2-field__input:focus + .a2-field__rule {
+  opacity: 1;
+}
+
+/* ============================================================
+   M6 Task 4 — Negotiation theater, result map, live mode
+   ============================================================ */
+
+/* ---- Incense ambient layer (complements body radial glows) ---- */
+.incense {
+  position: relative;
+  min-height: 100dvh;
+}
+.incense__field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.incense__content {
+  position: relative;
+  z-index: 1;
+}
+.incense__halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform, opacity;
+}
+.incense__halo--gold {
+  width: 42rem;
+  height: 42rem;
+  left: -8rem;
+  top: -10rem;
+  background: radial-gradient(circle, rgba(232, 176, 75, 0.22), transparent 65%);
+}
+.incense__halo--vermillion {
+  width: 36rem;
+  height: 36rem;
+  right: -6rem;
+  bottom: -8rem;
+  background: radial-gradient(circle, rgba(200, 68, 46, 0.2), transparent 65%);
+}
+.incense__wisp {
+  position: absolute;
+  bottom: 0;
+  height: 46vh;
+  border-radius: 50%;
+  filter: blur(18px);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+  mix-blend-mode: screen;
+}
+.incense__wisp--gold {
+  background: linear-gradient(
+    to top,
+    rgba(245, 215, 142, 0.28),
+    rgba(232, 176, 75, 0.12) 45%,
+    transparent
+  );
+}
+.incense__wisp--vermillion {
+  background: linear-gradient(
+    to top,
+    rgba(200, 68, 46, 0.26),
+    rgba(229, 83, 61, 0.1) 45%,
+    transparent
+  );
+}
+
+/* ---- Seal stamp (bid card entrance) ---- */
+.seal-stamp {
+  position: relative;
+  height: 100%;
+  transform-origin: 60% 35%;
+  will-change: transform, opacity;
+}
+/* Motion drives the seal entrance; suppress the generic CSS rise underneath so
+   the card does not double-animate. */
+.seal-stamp .a2-card {
+  animation: none;
+}
+/* Jiaobei's spring reveals the verdict; suppress the generic CSS rise. */
+.jiaobei .a2-card {
+  animation: none;
+}
+.seal-stamp__flash {
+  position: absolute;
+  top: 28%;
+  left: 56%;
+  width: 8rem;
+  height: 8rem;
+  margin: -4rem 0 0 -4rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(
+    circle,
+    rgba(229, 83, 61, 0.85),
+    rgba(200, 68, 46, 0.35) 45%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+
+/* ---- Jiaobei (擲筊) verdict reveal ---- */
+.jiaobei {
+  position: relative;
+}
+.jiaobei__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 2.8rem 1rem 3rem;
+  min-height: 14rem;
+}
+.jiaobei__kicker {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.jiaobei__pair {
+  display: flex;
+  gap: 2.4rem;
+  align-items: flex-end;
+}
+.jiaobei__toss {
+  will-change: transform;
+}
+.jiaobei__block {
+  position: relative;
+  width: 3.1rem;
+  height: 4.4rem;
+  /* crescent moon-block silhouette */
+  border-radius: 52% 52% 50% 50% / 70% 70% 36% 36%;
+  background: linear-gradient(150deg, #d8453097, #7e1f14 70%);
+  border: 1px solid rgba(245, 215, 142, 0.45);
+  box-shadow:
+    inset 0 6px 12px rgba(255, 220, 170, 0.25),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.jiaobei__block-face {
+  position: absolute;
+  inset: 18% 22% auto 22%;
+  height: 32%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, rgba(245, 215, 142, 0.55), transparent 70%);
+  opacity: 0.5;
+}
+/* settled faces: flat(陰) reads brighter-flat, round(陽) reads domed */
+.jiaobei__block[data-flat="true"] {
+  background: linear-gradient(150deg, #e85a3f, #a82d1e 70%);
+}
+.jiaobei__block[data-flat="false"] .jiaobei__block-face {
+  opacity: 0.9;
+}
+.jiaobei__burst {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 12rem;
+  height: 12rem;
+  margin: -6rem 0 0 -6rem;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(245, 215, 142, 0.9),
+    rgba(232, 176, 75, 0.4) 40%,
+    transparent 68%
+  );
+  mix-blend-mode: screen;
+}
+.jiaobei__verdict-word {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-glow);
+  text-shadow: 0 0 22px rgba(245, 215, 142, 0.6);
+}
+
+/* ---- Verdict result map shell ---- */
+.verdict-map-shell {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.verdict-map-shell__kicker {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.result-map {
+  width: 100%;
+  height: 22rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(232, 176, 75, 0.32);
+  box-shadow:
+    inset 0 0 28px rgba(0, 0, 0, 0.6),
+    0 14px 40px rgba(0, 0, 0, 0.5);
+  background: #0a0c11;
+}
+.result-map--loading {
+  display: grid;
+  place-items: center;
+}
+.result-map__loading-text {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  color: var(--smoke);
+}
+/* Leaflet dark-theme overrides */
+.result-map .leaflet-container {
+  background: #0a0c11;
+  font-family: var(--font-noto-sans-tc), sans-serif;
+}
+.result-map .leaflet-control-attribution {
+  background: rgba(11, 14, 20, 0.78);
+  color: var(--smoke);
+  font-size: 10px;
+}
+.result-map .leaflet-control-attribution a {
+  color: var(--gold);
+}
+.result-map .leaflet-bar a {
+  background: rgba(18, 22, 31, 0.95);
+  color: var(--gold);
+  border-bottom-color: rgba(232, 176, 75, 0.25);
+}
+.result-map .leaflet-bar a:hover {
+  background: rgba(232, 176, 75, 0.16);
+}
+/* Gold POI pin (divIcon) */
+.poi-divicon {
+  background: transparent;
+  border: none;
+}
+.poi-pin {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+}
+.poi-pin__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 215, 142, 0.7);
+  box-shadow: 0 0 14px rgba(232, 176, 75, 0.55);
+  animation: poi-pulse 2s ease-out infinite;
+}
+@keyframes poi-pulse {
+  0% { transform: scale(0.7); opacity: 0.9; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.poi-pin__core {
+  position: relative;
+  color: var(--gold-glow);
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(245, 215, 142, 0.9);
+}
+/* POI popup */
+.poi-popup-wrap .leaflet-popup-content-wrapper {
+  background: linear-gradient(180deg, rgba(232, 176, 75, 0.08), transparent 40%), var(--sanctum);
+  color: var(--ash);
+  border: 1px solid rgba(232, 176, 75, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+}
+.poi-popup-wrap .leaflet-popup-tip {
+  background: var(--sanctum);
+  border: 1px solid rgba(232, 176, 75, 0.4);
+}
+.poi-popup-wrap .leaflet-popup-content {
+  margin: 0.7rem 0.9rem;
+}
+.poi-popup__name {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gold-glow);
+  letter-spacing: 0.04em;
+}
+.poi-popup__cat {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  margin-top: 0.15rem;
+}
+.poi-popup__note {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--ash);
+  margin-top: 0.35rem;
+}
+
+/* ---- Live status strip ---- */
+.live-status {
+  margin: 1.4rem 0 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.live-status__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--smoke);
+  box-shadow: 0 0 8px currentColor;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.live-status__dot[data-conn="open"],
+.live-status__dot[data-conn="submitted"] {
+  background: var(--gold);
+}
+.live-status__dot[data-conn="done"] {
+  background: var(--jade);
+  animation: none;
+}
+.live-status__dot[data-conn="error"],
+.live-status__dot[data-conn="failed"] {
+  background: var(--seal);
+  animation: none;
+}
+.live-status__label {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.live-status__link {
+  margin-left: auto;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.live-status__link:hover {
+  border-bottom-color: var(--gold);
+}
+
+/* ---- Temple-closed banner ---- */
+.temple-closed {
+  margin-top: 2.4rem;
+  position: relative;
+  text-align: center;
+  padding: 3rem 1.6rem 3.4rem;
+  border: 1px solid rgba(200, 68, 46, 0.4);
+  border-radius: 12px;
+  background:
+    radial-gradient(40rem 24rem at 50% -20%, rgba(200, 68, 46, 0.14), transparent 60%),
+    var(--sanctum);
+  box-shadow: inset 0 0 36px rgba(200, 68, 46, 0.1), 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+.temple-closed__seal {
+  display: inline-grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(229, 83, 61, 0.6);
+  border-radius: 8px;
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--seal);
+  background: radial-gradient(circle at 50% 40%, rgba(200, 68, 46, 0.3), transparent);
+  box-shadow: inset 0 0 16px rgba(229, 83, 61, 0.3);
+}
+.temple-closed__title {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin: 0 0 0.8rem;
+  text-shadow: 0 0 20px rgba(245, 215, 142, 0.3);
+}
+.temple-closed__body {
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  color: var(--ash);
+  line-height: 1.9;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+.temple-closed__body code {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.85em;
+  color: var(--gold-glow);
+  background: rgba(11, 14, 20, 0.7);
+  border: 1px solid rgba(232, 176, 75, 0.3);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+.temple-closed__link {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.temple-closed__detail {
+  margin-top: 1rem;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--seal);
+}
+
+/* ============================================================
+   M7 Task 4 — Temple nav, blessing bloom, governance dashboard
+   ============================================================ */
+
+.sanctum--wide {
+  max-width: 64rem;
+}
+
+/* ---- Temple nav plaque ---- */
+.temple-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(232, 176, 75, 0.18);
+}
+.temple-nav__plaque {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(232, 176, 75, 0.4);
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 30%, rgba(200, 68, 46, 0.18), transparent);
+  text-shadow: 0 0 14px rgba(245, 215, 142, 0.35);
+}
+.temple-nav__halls {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.temple-nav__hall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--smoke);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.temple-nav__hall:hover {
+  color: var(--gold-glow);
+  border-color: rgba(232, 176, 75, 0.35);
+}
+.temple-nav__hall[data-active="true"] {
+  color: var(--gold);
+  border-color: rgba(232, 176, 75, 0.55);
+  background: rgba(232, 176, 75, 0.08);
+  box-shadow: inset 0 0 14px rgba(232, 176, 75, 0.12);
+}
+.temple-nav__glyph {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.temple-nav__label {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+/* ---- Blessing bloom (calm verdict reveal) ---- */
+.blessing-bloom {
+  position: relative;
+}
+.blessing-bloom .a2-card {
+  animation: none; /* the bloom drives the entrance */
+}
+.blessing-bloom__glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(48px);
+  background: radial-gradient(
+    circle,
+    rgba(245, 215, 142, 0.55),
+    rgba(232, 176, 75, 0.18) 45%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+.blessing-bloom__glow--static {
+  opacity: 0.5;
+}
+.blessing-bloom__halo {
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  width: 70%;
+  height: 70%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(54px);
+  background: radial-gradient(circle, rgba(200, 68, 46, 0.16), transparent 68%);
+  mix-blend-mode: screen;
+}
+.blessing-bloom > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- API-unreachable banner ---- */
+.api-banner {
+  margin: 1.4rem 0 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid rgba(200, 68, 46, 0.4);
+  border-radius: 8px;
+  background: rgba(200, 68, 46, 0.08);
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ash);
+}
+.api-banner__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--seal);
+  box-shadow: 0 0 10px var(--seal);
+}
+
+/* ---- 城市風向球 (category breakdown) ---- */
+.windvane {
+  margin: 2rem 0 1rem;
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.7fr) 1.6fr;
+  gap: clamp(1.2rem, 4vw, 2.4rem);
+  align-items: center;
+  padding: 1.8rem;
+  border: 1px solid rgba(232, 176, 75, 0.28);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(232, 176, 75, 0.05), transparent 40%),
+    var(--sanctum);
+  box-shadow: inset 0 0 28px rgba(232, 176, 75, 0.06), 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 640px) {
+  .windvane {
+    grid-template-columns: 1fr;
+  }
+}
+.windvane__headline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+.windvane__total {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 26px rgba(245, 215, 142, 0.4);
+}
+.windvane__total-label {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  color: var(--gold-glow);
+}
+.windvane__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.windvane-bar__head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+.windvane-bar__chip {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  box-shadow: 0 0 8px currentColor;
+}
+.windvane-bar__cat {
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  font-size: 0.92rem;
+  color: var(--ash);
+}
+.windvane-bar__n {
+  margin-left: auto;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.86rem;
+  color: var(--gold);
+}
+.windvane-bar__track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(11, 14, 20, 0.7);
+  border: 1px solid rgba(107, 113, 128, 0.25);
+  overflow: hidden;
+}
+.windvane-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(232, 176, 75, 0.4);
+  animation: windvane-grow 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes windvane-grow {
+  from { width: 0 !important; opacity: 0.4; }
+}
+
+/* ---- Dashboard sections ---- */
+.dashboard-section {
+  margin-top: 2.6rem;
+}
+.dashboard-section__title {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  letter-spacing: 0.1em;
+  color: var(--gold-glow);
+  margin: 0 0 0.4rem;
+}
+.dashboard-section__sub {
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--smoke);
+  margin: 0 0 1rem;
+}
+
+/* ---- Recent wishes ---- */
+.recent-wishes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.recent-wish {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid rgba(107, 113, 128, 0.22);
+  border-radius: 9px;
+  background: rgba(18, 22, 31, 0.55);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.recent-wish:hover {
+  border-color: rgba(232, 176, 75, 0.35);
+  background: rgba(18, 22, 31, 0.8);
+}
+.recent-wish__chip {
+  flex: none;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid;
+  border-radius: 999px;
+  background: rgba(11, 14, 20, 0.6);
+}
+.recent-wish__text {
+  flex: 1;
+  margin: 0;
+  font-family: var(--font-noto-sans-tc), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ash);
+}
+.recent-wish__time {
+  flex: none;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--smoke);
+}
+.recent-wish--empty {
+  justify-content: center;
+  color: var(--smoke);
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .incense__wisp,
+  .incense__halo,
+  .poi-pin__ring,
+  .live-status__dot,
+  .demo-replay__pulse,
+  .windvane-bar__fill {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Scout Chat Room UI
+   ============================================================ */
+
+/* Mobile chat toggle button — hidden on desktop */
+.chat-toggle {
+  display: none;
+}
+
+.chat-room {
+  position: fixed;
+  top: 120px;
+  right: 32px;
+  width: 380px;
+  max-height: calc(100vh - 160px);
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: rgba(10, 12, 17, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 176, 75, 0.15);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* Mobile: slide-in drawer */
+@media (max-width: 768px) {
+  .chat-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 1.6rem;
+    right: 1.6rem;
+    z-index: 201;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--vermillion));
+    color: #fff;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.15s ease;
+  }
+  .chat-toggle:active { transform: scale(0.9); }
+
+  .chat-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+  }
+
+  .chat-room {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85vw;
+    max-width: 380px;
+    max-height: 100dvh;
+    border-radius: 12px 0 0 12px;
+    z-index: 200;
+    transform: translateX(110%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .chat-room--open {
+    transform: translateX(0);
+  }
+}
+
+.chat-room .a2-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.chat-bubble-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chat-avatar {
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--vermillion));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(200, 68, 46, 0.3);
+}
+
+.chat-bubble {
+  position: relative;
+  background: rgba(28, 33, 44, 0.9);
+  padding: 0;
+  border-radius: 16px;
+  border-top-left-radius: 4px;
+  border: 1px solid rgba(232, 176, 75, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 90%;
+  overflow: hidden;
+}
+
+/* override the default Card padding so it fits well inside the chat bubble */
+.chat-bubble .a2-card {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0.8rem 1rem;
+}
+
+/* A little tail for the chat bubble */
+.chat-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid rgba(28, 33, 44, 0.9);
+  border-left: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* ── 里長大會 (Council) ───────────────────────────────────────────────────── */
+.council-map-shell {
+  margin: 1.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.council-map-shell__kicker {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.council-map {
+  height: 26rem;
+}
+/* Speaking boundary breathes — applied to the SVG path via Leaflet className. */
+.council-boundary--speaking {
+  animation: council-breathe 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(245, 196, 81, 0.85));
+}
+@keyframes council-breathe {
+  0%, 100% { fill-opacity: 0.3; }
+  50% { fill-opacity: 0.55; }
+}
+.council-tooltip {
+  background: rgba(11, 14, 20, 0.85);
+  border: 1px solid rgba(232, 176, 75, 0.3);
+  color: var(--gold-glow);
+  font-size: 0.72rem;
+  font-family: var(--font-noto-sans-tc), sans-serif;
+}
+/* Legend under the map */
+.council-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--smoke);
+}
+.council-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+.council-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+.council-legend__dot--speaking { background: #f5c451; color: #f5c451; }
+.council-legend__dot--support  { background: #4ade80; color: #4ade80; }
+.council-legend__dot--oppose   { background: #f87171; color: #f87171; }
+.council-legend__dot--question { background: #60a5fa; color: #60a5fa; }
+.council-legend__dot--inform   { background: #c9b894; color: #c9b894; }
+
+/* ── Council transcript compact rows ─────────────────────── */
+.stmt-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.55rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+.stmt-row:last-child { border-bottom: none; }
+
+.stmt-name {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.stmt-name--support  { color: #4ade80; }
+.stmt-name--oppose   { color: #f87171; }
+.stmt-name--question { color: #60a5fa; }
+.stmt-name--inform   { color: #c9b894; }
+
+.stmt-badge {
+  font-size: 0.7rem;
+  padding: 0.06em 0.4em;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+.stmt-badge--support  { color: #4ade80; }
+.stmt-badge--oppose   { color: #f87171; }
+.stmt-badge--question { color: #60a5fa; }
+.stmt-badge--inform   { color: #c9b894; }
+
+.stmt-responds {
+  font-size: 0.72rem;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.stmt-text {
+  flex: 1 1 100%;
+  color: var(--parchment, #c9b894);
+  margin-top: 0.05rem;
+}
+
+/* ============================================================
+   Negotiation Board (Compact UI)
+   ============================================================ */
+.negotiation-board {
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.negotiation-board__body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.negotiation-board__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.negotiation-row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.2rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.negotiation-row:last-child {
+  border-bottom: none;
+}
+
+.negotiation-row__left {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.negotiation-row__name {
+  font-family: var(--font-noto-serif-tc), serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+}
+
+.negotiation-row__score {
+  font-family: var(--font-space-mono), monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--gold-glow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.negotiation-row__score-bar {
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background-color: var(--seal);
+}
+
+.negotiation-row__right {
+  flex: 1;
+  color: var(--ash);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.negotiation-board__pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem 0.5rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.85rem;
+  color: var(--smoke);
+}
+
+.negotiation-board__btn {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.negotiation-board__btn:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.negotiation-board__btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* Adjust seal stamp flash for compact layout */
+.negotiation-row__left .seal-stamp__flash {
+  width: 5rem;
+  height: 5rem;
+  margin: -2.5rem 0 0 -2.5rem;
+  top: 50%;
+  left: 40%;
+}

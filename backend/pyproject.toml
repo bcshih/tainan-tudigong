@@ -1,0 +1,36 @@
+[project]
+name = "digital-earth-god"
+version = "0.1.0"
+description = "數位土地公 — MAS 微觀治理系統"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "python-dotenv>=1.0",
+    "mcp>=1.0",
+    "google-adk>=2.0",
+    "a2a-sdk>=0.3.4,<0.4",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "websockets>=12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4", "pytest-asyncio>=0.23"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["deg*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_mode = "auto"
+markers = [
+    "integration: requires GOOGLE_API_KEY and makes live LLM calls (slow)",
+]
+
+[tool.ruff]
+line-length = 100

@@ -1,0 +1,25 @@
+# Python
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.egg-info/
+**/data/warmdata.db
+
+# Node
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Env & secrets — NEVER commit real keys
+.env
+.env.local
+**/.env
+**/.env.local
+# Only .env.example is allowed in git
+
+# Misc
+.DS_Store
+*.log
+.pytest_cache/
+.ruff_cache/
+.netlify/

@@ -1,0 +1,165 @@
+import { useEffect, useRef, useState } from "react";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import type { DayItinerary } from "../../types";
+
+mapboxgl.accessToken = (import.meta.env.VITE_MAPBOX_TOKEN || "pk.eyJ1IjoiZHVtbXkiLCJhIjoiY2x4eHh4eHh4eHh4eHh4eHh4eHh4eHh4In0.dummy") as string;
+
+interface Props {
+  itinerary: DayItinerary | undefined;
+  activeItemId?: string;
+}
+
+// Tainan center
+const TAINAN_CENTER: [number, number] = [120.2012, 22.9998];
+
+export function MapView({ itinerary, activeItemId }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<mapboxgl.Map | null>(null);
+  const markersRef = useRef<mapboxgl.Marker[]>([]);
+  const popupsRef = useRef<mapboxgl.Popup[]>([]);
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  // Init map
+  useEffect(() => {
+    if (!containerRef.current || mapRef.current) return;
+
+    const map = new mapboxgl.Map({
+      container: containerRef.current,
+      // Soft pinkish-white style
+      style: "mapbox://styles/mapbox/dark-v11",
+      center: TAINAN_CENTER,
+      zoom: 13,
+      attributionControl: false,
+    });
+
+    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "bottom-right");
+    map.addControl(new mapboxgl.AttributionControl({ compact: true }), "bottom-left");
+
+    map.on("load", () => {
+      setMapLoaded(true);
+
+      // Tint the map to match our palette
+
+      // Animate map in
+      map.flyTo({ center: TAINAN_CENTER, zoom: 13, duration: 1200, essential: true });
+    });
+
+    mapRef.current = map;
+    return () => { map.remove(); mapRef.current = null; };
+  }, []);
+
+  // Update markers when itinerary changes
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return;
+    const map = mapRef.current;
+
+    // Clear old markers & popups
+    markersRef.current.forEach(m => m.remove());
+    popupsRef.current.forEach(p => p.remove());
+    markersRef.current = [];
+    popupsRef.current = [];
+
+    const items = itinerary?.items.filter(i => i.spot.lat && i.spot.lng) ?? [];
+    if (items.length === 0) return;
+
+    const bounds = new mapboxgl.LngLatBounds();
+
+    items.forEach((item) => {
+      const { lat, lng, name, openHours, tags } = item.spot;
+      const isActive = item.id === activeItemId;
+
+      // Custom marker element
+      const el = document.createElement("div");
+      el.className = "map-marker";
+      el.innerHTML = `
+        <div class="map-marker-pulse ${isActive ? "map-marker-pulse--active" : ""}"></div>
+        <div class="map-marker-dot ${isActive ? "map-marker-dot--active" : ""}">${item.order}</div>
+      `;
+
+      // Popup
+      const popup = new mapboxgl.Popup({
+        offset: 32,
+        closeButton: false,
+        className: "map-popup",
+      }).setHTML(`
+        <div class="popup-inner">
+          <div class="popup-order">${item.order}</div>
+          <div class="popup-content">
+            <p class="popup-name">${name}</p>
+            ${openHours ? `<p class="popup-hours">⏰ ${openHours}</p>` : ""}
+            ${tags?.length ? `<div class="popup-tags">${tags.map(t => `<span class="popup-tag">${t}</span>`).join("")}</div>` : ""}
+          </div>
+        </div>
+      `);
+
+      const marker = new mapboxgl.Marker({ element: el, anchor: "center" })
+        .setLngLat([lng!, lat!])
+        .setPopup(popup)
+        .addTo(map);
+
+      el.addEventListener("mouseenter", () => popup.addTo(map));
+      el.addEventListener("mouseleave", () => popup.remove());
+
+      markersRef.current.push(marker);
+      popupsRef.current.push(popup);
+      bounds.extend([lng!, lat!]);
+    });
+
+    // Draw route line between spots
+    if (items.length > 1) {
+      const coords = items.map(i => [i.spot.lng!, i.spot.lat!] as [number, number]);
+
+      if (map.getSource("route")) {
+        (map.getSource("route") as mapboxgl.GeoJSONSource).setData({
+          type: "Feature",
+          properties: {},
+          geometry: { type: "LineString", coordinates: coords },
+        });
+      } else {
+        map.addSource("route", {
+          type: "geojson",
+          data: {
+            type: "Feature",
+            properties: {},
+            geometry: { type: "LineString", coordinates: coords },
+          },
+        });
+        map.addLayer({
+          id: "route",
+          type: "line",
+          source: "route",
+          layout: { "line-join": "round", "line-cap": "round" },
+          paint: {
+            "line-color": "#cf447a",
+            "line-width": 3,
+            "line-dasharray": [1, 2.5],
+            "line-opacity": 0.85,
+            "line-blur": 0,
+          },
+        });
+      }
+    }
+
+    // Fit map to markers with animation
+    if (!bounds.isEmpty()) {
+      map.fitBounds(bounds, {
+        padding: { top: 80, bottom: 80, left: 80, right: 80 },
+        duration: 900,
+        essential: true,
+      });
+    }
+  }, [itinerary, mapLoaded, activeItemId]);
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <div ref={containerRef} style={{ width: "100%", height: "100%" }} />
+      {!mapLoaded && (
+        <div className="map-loading">
+          <div className="map-loading-spinner"/>
+          <p>地圖載入中…</p>
+        </div>
+      )}
+    </div>
+  );
+}

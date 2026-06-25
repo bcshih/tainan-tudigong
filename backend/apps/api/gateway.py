@@ -880,6 +880,11 @@ def create_app() -> FastAPI:
         async with asyncio.timeout(_PIPELINE_TIMEOUT):
             selected = await _run_community_scout(session_service, content, top_n=3)
             names = _agent_name_map()
+            # Force-include any 里 explicitly named in the user's message
+            name_to_id = {v: k for k, v in names.items()}
+            for li_name, aid in name_to_id.items():
+                if li_name in content and aid not in selected:
+                    selected.append(aid)
             for aid in selected:
                 nm = names.get(aid, aid)
                 if aid not in session.participating:
@@ -892,7 +897,9 @@ def create_app() -> FastAPI:
                             "agent_name": a.street_name, "text": a.answer_text})
             await sink({"type": "phase", "phase": "refining",
                         "message": "土地公正在調整行程…"})
-            pool = _li_poi_pool(selected)
+            # Pool includes current turn's 里 + all previously participating 里
+            pool_ids = list({*selected, *session.participating})
+            pool = _li_poi_pool(pool_ids)
             result = await _run_refinement(session_service, session, content, answers, pool)
         session.itinerary = _correct_itinerary_coords(list(result.itinerary))
         if result.recommendation:

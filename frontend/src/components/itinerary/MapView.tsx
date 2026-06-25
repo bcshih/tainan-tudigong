@@ -108,39 +108,48 @@ export function MapView({ itinerary, activeItemId }: Props) {
       bounds.extend([lng!, lat!]);
     });
 
-    // Draw route line between spots
+    // Draw route line between spots (real walking path via Mapbox Directions)
     if (items.length > 1) {
       const coords = items.map(i => [i.spot.lng!, i.spot.lat!] as [number, number]);
 
-      if (map.getSource("route")) {
-        (map.getSource("route") as mapboxgl.GeoJSONSource).setData({
-          type: "Feature",
-          properties: {},
-          geometry: { type: "LineString", coordinates: coords },
-        });
-      } else {
-        map.addSource("route", {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            properties: {},
-            geometry: { type: "LineString", coordinates: coords },
-          },
-        });
-        map.addLayer({
-          id: "route",
-          type: "line",
-          source: "route",
-          layout: { "line-join": "round", "line-cap": "round" },
-          paint: {
-            "line-color": "#cf447a",
-            "line-width": 3,
-            "line-dasharray": [1, 2.5],
-            "line-opacity": 0.85,
-            "line-blur": 0,
-          },
-        });
-      }
+      const drawRoute = (geometry: GeoJSON.LineString | GeoJSON.MultiLineString) => {
+        const data: GeoJSON.Feature = { type: "Feature", properties: {}, geometry };
+        if (map.getSource("route")) {
+          (map.getSource("route") as mapboxgl.GeoJSONSource).setData(data);
+        } else {
+          map.addSource("route", { type: "geojson", data });
+          map.addLayer({
+            id: "route",
+            type: "line",
+            source: "route",
+            layout: { "line-join": "round", "line-cap": "round" },
+            paint: {
+              "line-color": "#cf447a",
+              "line-width": 3,
+              "line-dasharray": [1, 2.5],
+              "line-opacity": 0.85,
+            },
+          });
+        }
+      };
+
+      // Fetch real walking route from Mapbox Directions API
+      const token = mapboxgl.accessToken;
+      const coordStr = coords.map(c => c.join(",")).join(";");
+      fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${coordStr}` +
+        `?geometries=geojson&overview=full&access_token=${token}`
+      )
+        .then(r => r.json())
+        .then(data => {
+          if (data.routes?.[0]?.geometry) {
+            drawRoute(data.routes[0].geometry);
+          } else {
+            // Fallback to straight lines if directions unavailable
+            drawRoute({ type: "LineString", coordinates: coords });
+          }
+        })
+        .catch(() => drawRoute({ type: "LineString", coordinates: coords }));
     }
 
     // Fit map to markers with animation

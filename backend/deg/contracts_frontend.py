@@ -20,15 +20,13 @@ from deg.schemas import BiddingProposal, DebateMessage, ItineraryStop, Poi
 
 # All 20 里 in the dataset are in Tainan's West Central District.
 _DISTRICT = "中西區"
-_MAPS_KEY = os.getenv("GOOGLE_MAPS_API_KEY", "")
-
-
 def _streetview_url(lat: float, lng: float) -> str | None:
-    if not _MAPS_KEY:
+    key = os.getenv("GOOGLE_MAPS_API_KEY", "")
+    if not key:
         return None
     return (
         f"https://maps.googleapis.com/maps/api/streetview"
-        f"?size=400x300&location={lat},{lng}&key={_MAPS_KEY}"
+        f"?size=400x300&location={lat},{lng}&key={key}"
     )
 
 

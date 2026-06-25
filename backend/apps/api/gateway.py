@@ -1450,6 +1450,17 @@ def create_app() -> FastAPI:
             except Exception:
                 pass
 
+    # ── Debug — verify imageUrl generation ────────────────────────────────────
+    @app.get("/debug/spot-sample")
+    async def debug_spot_sample() -> dict[str, Any]:
+        """Returns a sample Spot to verify Street View key is wired correctly."""
+        from deg.contracts_frontend import poi_to_spot
+        from deg.schemas import LatLng, Poi
+        sample = Poi(name="赤崁樓", category="古蹟", location=LatLng(lat=22.9972, lng=120.2028))
+        spot = poi_to_spot(sample, "赤嵌里")
+        has_key = bool(os.getenv("GOOGLE_MAPS_API_KEY", ""))
+        return {"spot": spot, "maps_key_loaded": has_key}
+
     # ── 求吉籤 Fortune — one lot per 里, static data ──────────────────────────
     @app.get("/fortune/itinerary")
     async def fortune_itinerary() -> dict[str, Any]:

@@ -5,4 +5,5 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  VITE_BACKEND_WS = "wss://digital-earth-god-backend-production.up.railway.app"
+  VITE_BACKEND_WS  = "wss://digital-earth-god-backend-production.up.railway.app"
+  VITE_BACKEND_HTTP = "https://digital-earth-god-backend-production.up.railway.app"

@@ -38,11 +38,13 @@ export function MapView({ itinerary, activeItemId }: Props) {
 
     map.on("load", () => {
       setMapLoaded(true);
-
-      // Tint the map to match our palette
-
-      // Animate map in
       map.flyTo({ center: TAINAN_CENTER, zoom: 13, duration: 1200, essential: true });
+    });
+
+    // Release spinner even on token/network error so UI isn't stuck
+    map.on("error", (e) => {
+      console.error("[MapView] Mapbox error:", e.error);
+      setMapLoaded(true);
     });
 
     mapRef.current = map;

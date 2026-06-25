@@ -1450,34 +1450,14 @@ def create_app() -> FastAPI:
             except Exception:
                 pass
 
-    # ── 求吉籤 Fortune — random real-POI mini itinerary ──────────────────────
+    # ── 求吉籤 Fortune — one lot per 里, static data ──────────────────────────
     @app.get("/fortune/itinerary")
     async def fortune_itinerary() -> dict[str, Any]:
         import random as _random
-        from deg.seed.loader import load_agents
+        from deg.fortune_lots import FORTUNE_LOTS
 
-        names = _agent_name_map()
-        pool: list[tuple[str, Any]] = []
-        for li in load_agents():
-            street = li.to_street()
-            for p in street.pois:
-                pool.append((street.agent_id, p))
-        if not pool:
-            return {"grade": "平籤", "poem": [], "spots": []}
-
-        k = min(len(pool), _random.choice([2, 3]))
-        picked = _random.sample(pool, k)
-        spots = [
-            poi_to_spot(p, names.get(aid, "台南市"), spot_id=f"fortune-{i}")
-            for i, (aid, p) in enumerate(picked)
-        ]
-        grade = _random.choice(["上上大吉", "大吉", "中吉", "小吉"])
-        poem = _random.choice([
-            ["府城古都千年情", "此景非遊枉此行", "里長引路福星臨", "不虛此行大吉祥"],
-            ["神明指引步步行", "古蹟巡禮福氣來", "台南美景入心懷", "千里尋訪此一處"],
-            ["香火鼎盛土地公", "保佑旅人行路順", "此景藏於府城中", "有緣得見必留連"],
-        ])
-        return {"grade": grade, "poem": poem, "spots": spots}
+        lot = _random.choice(FORTUNE_LOTS)
+        return {"grade": lot["grade"], "poem": lot["poem"], "spots": lot["spots"]}
 
     # ── 問神明 Divination — a god's reading of a 擲筊 throw ───────────────────
     divination_runner = Runner(

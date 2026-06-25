@@ -929,11 +929,25 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
 
   /* ── Itinerary: cards fill available space, map is compact strip at bottom ── */
   .itinerary-view {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 200px;
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: unset !important;
   }
-  .itinerary-sidebar { height: auto; min-height: 0; max-height: none; border-right: none; border-bottom: 1px solid var(--glass-border); }
-  .map-area { height: 200px; min-height: 200px; }
+  .itinerary-sidebar {
+    flex: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .map-area {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    flex-shrink: 0 !important;
+  }
   .sidebar-header { padding: 12px 14px 8px; }
   .sidebar-title { font-size: 1.2rem; }
   .cards-list { padding: 8px 10px; }
@@ -1018,6 +1032,6 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
   .navbar-name { display: none; }
   .navbar-char { font-size: 1.05rem; }
   .wen-god-big { width: 140px !important; height: 140px !important; }
-  .map-area { height: 160px; min-height: 160px; }
+  .map-area { height: 160px !important; min-height: 160px !important; max-height: 160px !important; }
   .fu-map { height: 180px; min-height: 180px; }
 }

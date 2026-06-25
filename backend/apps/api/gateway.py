@@ -582,6 +582,33 @@ class _ExploreSession:
         return itinerary_to_days(self.itinerary, _agent_name_map())
 
 
+def _build_poi_coord_index() -> dict[str, tuple[float, float]]:
+    """Build a name→(lat,lng) index from ALL seed POIs for coordinate correction."""
+    from deg.seed.loader import load_agents
+    index: dict[str, tuple[float, float]] = {}
+    for li in load_agents():
+        for poi in li.to_street().pois:
+            index[poi.name] = (poi.location.lat, poi.location.lng)
+    return index
+
+
+_POI_COORD_INDEX: dict[str, tuple[float, float]] | None = None
+
+
+def _correct_itinerary_coords(stops: list[Any]) -> list[Any]:
+    """Override hallucinated coordinates with seed ground-truth values (name match)."""
+    global _POI_COORD_INDEX
+    if _POI_COORD_INDEX is None:
+        _POI_COORD_INDEX = _build_poi_coord_index()
+    for stop in stops:
+        name = getattr(stop.poi, "name", None)
+        if name and name in _POI_COORD_INDEX:
+            lat, lng = _POI_COORD_INDEX[name]
+            stop.poi.location.lat = lat
+            stop.poi.location.lng = lng
+    return stops
+
+
 def _li_poi_pool(agent_ids: list[str]) -> list[dict[str, Any]]:
     """Candidate-POI pool (from layer_3 data) for the given 里, for the judge."""
     from deg.seed.loader import load_agents
@@ -836,7 +863,7 @@ def create_app() -> FastAPI:
                         "message": f"土地公向分數最高的 {len(selected)} 個候選里發出正式招標，地基主們開始投標…"})
             session.participating.update(selected)
             result = await _run_pipeline(session_service, tb, selected, on_event=sink)
-        session.itinerary = list(result.itinerary)
+        session.itinerary = _correct_itinerary_coords(list(result.itinerary))
         session.task_id = result.task_id or session.task_id
         if result.recommendation:
             await sink({"type": "verdict_text", "text": result.recommendation})
@@ -867,7 +894,7 @@ def create_app() -> FastAPI:
                         "message": "土地公正在調整行程…"})
             pool = _li_poi_pool(selected)
             result = await _run_refinement(session_service, session, content, answers, pool)
-        session.itinerary = list(result.itinerary)
+        session.itinerary = _correct_itinerary_coords(list(result.itinerary))
         if result.recommendation:
             await sink({"type": "verdict_text", "text": result.recommendation})
         await sink({"type": "itinerary_update", "data": session.days_payload()})

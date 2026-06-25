@@ -927,13 +927,13 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
   .chat-input { padding: 12px 16px; font-size: 1rem; }
   .send-btn { padding: 12px 18px; font-size: 0.9rem; }
 
-  /* ── Itinerary: stack sidebar above map ── */
+  /* ── Itinerary: cards fill available space, map is compact strip at bottom ── */
   .itinerary-view {
     grid-template-columns: 1fr;
-    grid-template-rows: 52vh 1fr;
+    grid-template-rows: 1fr 200px;
   }
-  .itinerary-sidebar { height: 52vh; min-height: 0; border-right: none; border-bottom: 1px solid var(--glass-border); }
-  .map-area { min-height: 0; }
+  .itinerary-sidebar { height: auto; min-height: 0; max-height: none; border-right: none; border-bottom: 1px solid var(--glass-border); }
+  .map-area { height: 200px; min-height: 200px; }
   .sidebar-header { padding: 12px 14px 8px; }
   .sidebar-title { font-size: 1.2rem; }
   .cards-list { padding: 8px 10px; }
@@ -1018,7 +1018,6 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
   .navbar-name { display: none; }
   .navbar-char { font-size: 1.05rem; }
   .wen-god-big { width: 140px !important; height: 140px !important; }
-  .itinerary-view { grid-template-rows: 48vh 1fr; }
-  .itinerary-sidebar { height: 48vh; }
+  .map-area { height: 160px; min-height: 160px; }
   .fu-map { height: 180px; min-height: 180px; }
 }

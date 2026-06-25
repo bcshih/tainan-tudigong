@@ -167,7 +167,8 @@ def create_community_scout(
 
     activities = []
     if li_data.layer_2_dynamic_activities and "value" in li_data.layer_2_dynamic_activities:
-        activities = li_data.layer_2_dynamic_activities["value"]
+        activities = [a for a in li_data.layer_2_dynamic_activities["value"]
+                      if a.get("category") != "weather"]
     opinions = []
     if li_data.layer_4_citizen_opinions and "value" in li_data.layer_4_citizen_opinions:
         opinions = li_data.layer_4_citizen_opinions["value"]
@@ -216,7 +217,8 @@ def create_community_agent(
 
     activities = []
     if li_data.layer_2_dynamic_activities and "value" in li_data.layer_2_dynamic_activities:
-        activities = li_data.layer_2_dynamic_activities["value"]
+        activities = [a for a in li_data.layer_2_dynamic_activities["value"]
+                      if a.get("category") != "weather"]
     opinions = []
     if li_data.layer_4_citizen_opinions and "value" in li_data.layer_4_citizen_opinions:
         opinions = li_data.layer_4_citizen_opinions["value"]
@@ -280,7 +282,8 @@ def create_council_speaker(
 
     activities = []
     if li_data.layer_2_dynamic_activities and "value" in li_data.layer_2_dynamic_activities:
-        activities = li_data.layer_2_dynamic_activities["value"]
+        activities = [a for a in li_data.layer_2_dynamic_activities["value"]
+                      if a.get("category") != "weather"]
     opinions = []
     if li_data.layer_4_citizen_opinions and "value" in li_data.layer_4_citizen_opinions:
         opinions = li_data.layer_4_citizen_opinions["value"]

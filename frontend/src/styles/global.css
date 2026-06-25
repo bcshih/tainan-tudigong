@@ -872,3 +872,153 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
   );
   mix-blend-mode: screen;
 }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — mobile (≤ 768px)
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* ── Root tokens ── */
+  :root {
+    --fs-body:   16px;
+    --fs-bubble: 17px;
+    --fs-btn:    16px;
+    --navbar-h:  56px;
+  }
+
+  /* dvh for iOS Safari address-bar */
+  html, body { height: 100dvh; }
+  #root, .app-root { height: 100dvh; }
+
+  /* ── Navbar ── */
+  .navbar-char { font-size: 1rem; }
+  .navbar-name { font-size: 0.6rem; }
+  /* iPhone home-indicator safe area */
+  .navbar { padding-bottom: env(safe-area-inset-bottom, 0px); height: calc(var(--navbar-h) + env(safe-area-inset-bottom, 0px)); }
+
+  /* ── Home page ── */
+  .home-page { padding: 0 14px 14px; }
+  .home-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+  .home-subtitle { font-size: 0.88rem; }
+  .home-header { margin-bottom: 16px; }
+  .home-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .home-card { padding: 18px 10px; gap: 6px; }
+  .home-card-char { font-size: 2.2rem; }
+  .home-card-name { font-size: 0.95rem; }
+  .home-card-desc { display: none; }
+
+  /* ── Form page: hide photo wall, single-column ── */
+  .form-page { grid-template-columns: 1fr; }
+  .bento-wall { display: none; }
+  .form-panel { overflow-y: auto; padding: 18px 18px 24px; gap: 12px; justify-content: flex-start; }
+  .section-label { font-size: 0.62rem; }
+  .submit-btn { padding: 11px; font-size: 0.9rem; }
+
+  /* ── Chatroom: hide sidebar ── */
+  .chatroom { grid-template-columns: 1fr; }
+  .chat-sidebar { display: none; }
+  .chat-header { padding: 11px 14px; }
+  .finalize-btn { padding: 8px 14px; font-size: 0.8rem; }
+  .ws-status { padding: 4px 10px; font-size: 0.72rem; }
+  .messages-area { padding: 14px; gap: 14px; }
+  .bubble { max-width: 88%; padding: 12px 15px; }
+  .agent-avatar { width: 38px; height: 38px; font-size: 0.85rem; }
+  .agent-name { font-size: 0.66rem; }
+  .chat-input-bar { padding: 10px 12px; gap: 8px; }
+  .chat-input { padding: 12px 16px; font-size: 1rem; }
+  .send-btn { padding: 12px 18px; font-size: 0.9rem; }
+
+  /* ── Itinerary: stack sidebar above map ── */
+  .itinerary-view {
+    grid-template-columns: 1fr;
+    grid-template-rows: 52vh 1fr;
+  }
+  .itinerary-sidebar { height: 52vh; min-height: 0; border-right: none; border-bottom: 1px solid var(--glass-border); }
+  .map-area { min-height: 0; }
+  .sidebar-header { padding: 12px 14px 8px; }
+  .sidebar-title { font-size: 1.2rem; }
+  .cards-list { padding: 8px 10px; }
+  .itinerary-card { margin: 3px 0; }
+  .card-img { height: 88px; }
+  .export-btn { margin: 10px 12px 14px; padding: 13px; }
+
+  /* ── FuPage: stack left + map ── */
+  .fu-page { display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; }
+  .fu-left { padding: 14px 14px 0; gap: 12px; overflow: visible; }
+  .fu-stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .fu-stat-val { font-size: 1.4rem; }
+  .fu-map { height: 220px; min-height: 220px; flex-shrink: 0; }
+  .report-list { overflow-y: visible; padding-bottom: 20px; }
+
+  /* ── WenPage ── */
+  .wen-stage { flex: 1; overflow-y: auto; }
+  .wen-god-big { width: 180px !important; height: 180px !important; }
+  .wen-god-name-title { font-size: 1.5rem; }
+  .wen-stage-prompt { font-size: 1.6rem; }
+  .wen-stage-lanterns { font-size: 2rem; letter-spacing: 0.5rem; }
+  .wen-stage-content { gap: 8px; padding: 14px; }
+  /* God selector: 3 per row instead of 6 in a line */
+  .wen-god-selector-bar { flex: none; height: auto; flex-wrap: wrap; }
+  .wen-god-selector-card { flex: 0 0 33.333%; min-height: 54px; border-right: 1px solid rgba(255,215,0,0.1); border-bottom: 1px solid rgba(255,215,0,0.1); }
+  .wen-god-selector-card:nth-child(3n) { border-right: none; }
+  .wen-sel-name { font-size: 0.9rem; }
+  .wen-sel-desc { display: none; }
+  .wen-big-btn { padding: 12px 28px; font-size: 0.95rem; }
+  .wen-cups-row { gap: 20px; min-height: 90px; }
+  .wen-poe-block { padding: 8px 14px; gap: 10px; }
+  .wen-result-msg-big { font-size: 0.95rem; }
+  .weather-done-btn { padding: 13px 28px; font-size: 0.95rem; }
+
+  /* ── YiPage ── */
+  .yi-header { padding: 14px 16px 10px; }
+  .yi-title { font-size: 1.4rem; }
+  .yi-topic-select { padding: 18px 14px; gap: 14px; }
+  .yi-messages { padding: 14px 16px; gap: 14px; }
+  .yi-bubble-wrap { max-width: 88%; }
+  .yi-input-bar { padding: 10px 12px; gap: 8px; }
+  .yi-topic-grid { gap: 10px; }
+  .yi-topic-btn { padding: 14px 12px; font-size: 0.92rem; }
+
+  /* ── WishPage ── */
+  .wish-header { padding: 14px 16px 12px; }
+  .wish-title { font-size: 1.6rem; }
+  .wish-form-inner { padding: 18px 14px 64px; gap: 20px; }
+  .prayer-cats { gap: 6px; }
+  .prayer-cat-btn { padding: 8px 13px; font-size: 0.84rem; }
+  .prayer-submit-btn { padding: 15px; font-size: 1rem; }
+
+  /* ── QianPage / fortune barrel ── */
+  .lot-main-title { font-size: 1.8rem; }
+  .lot-stage-center { padding: 14px; gap: 12px; }
+  .barrel-body { width: 110px; height: 155px; }
+  .barrel-label { font-size: 2.4rem; }
+  .barrel-top-ring, .barrel-base { width: 120px; }
+  .lot-action-btn { padding: 14px 36px; font-size: 1.05rem; }
+  /* Fortune result card: spots as vertical list */
+  .lot-final-card-locked { width: calc(100% - 16px); height: calc(100% - 16px); }
+  .lot-spots-grid { flex-direction: column; align-items: center; overflow-y: auto; gap: 8px; }
+  .lot-spot-card { flex-direction: row; max-width: 100%; width: 100%; gap: 10px; padding: 8px 12px; }
+  .lot-spot-img { width: 68px; height: 68px; flex-shrink: 0; }
+  .lot-spots-row { overflow: hidden; padding: 6px 12px; }
+  .lot-poem-row { gap: 10px; padding: 8px 14px; }
+
+  /* ── Tudigong loading overlay ── */
+  .tudigong-card, .tudigong-card-clean { padding: 28px 28px; max-width: 88vw; }
+  .tudigong-god-img, .loading-god-img { width: 110px; height: 110px; }
+
+  /* ── Map popup ── */
+  .popup-inner { min-width: 130px; max-width: 190px; padding: 10px 12px; }
+
+  /* ── Weather POE panel ── */
+  .weather-poe-panel { width: calc(100vw - 28px); right: 14px; left: 14px; }
+}
+
+/* ── Extra-small phones (≤ 390px) ── */
+@media (max-width: 390px) {
+  .home-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+  .navbar-name { display: none; }
+  .navbar-char { font-size: 1.05rem; }
+  .wen-god-big { width: 140px !important; height: 140px !important; }
+  .itinerary-view { grid-template-rows: 48vh 1fr; }
+  .itinerary-sidebar { height: 48vh; }
+  .fu-map { height: 180px; min-height: 180px; }
+}

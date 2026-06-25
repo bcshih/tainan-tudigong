@@ -61,22 +61,31 @@ export function MapView({ itinerary, activeItemId }: Props) {
     popupsRef.current.forEach(p => p.remove());
     markersRef.current = [];
     popupsRef.current = [];
+    // Clear old route layers
+    if (map.getLayer("route-arrows")) map.removeLayer("route-arrows");
+    if (map.getLayer("route")) map.removeLayer("route");
+    if (map.getSource("route")) map.removeSource("route");
 
     const items = itinerary?.items.filter(i => i.spot.lat && i.spot.lng) ?? [];
     if (items.length === 0) return;
 
     const bounds = new mapboxgl.LngLatBounds();
+    const lastIdx = items.length - 1;
 
-    items.forEach((item) => {
+    items.forEach((item, idx) => {
       const { lat, lng, name, openHours, tags } = item.spot;
       const isActive = item.id === activeItemId;
+      const isFirst = idx === 0;
+      const isLast = idx === lastIdx && lastIdx > 0;
 
       // Custom marker element
       const el = document.createElement("div");
       el.className = "map-marker";
       el.innerHTML = `
         <div class="map-marker-pulse ${isActive ? "map-marker-pulse--active" : ""}"></div>
-        <div class="map-marker-dot ${isActive ? "map-marker-dot--active" : ""}">${item.order}</div>
+        <div class="map-marker-dot ${isActive ? "map-marker-dot--active" : ""} ${isFirst ? "map-marker-dot--start" : ""} ${isLast ? "map-marker-dot--end" : ""}">${item.order}</div>
+        ${isFirst ? '<div class="map-marker-label map-marker-label--start">起</div>' : ""}
+        ${isLast ? '<div class="map-marker-label map-marker-label--end">終</div>' : ""}
       `;
 
       // Popup
@@ -114,23 +123,45 @@ export function MapView({ itinerary, activeItemId }: Props) {
 
       const drawRoute = (geometry: GeoJSON.LineString | GeoJSON.MultiLineString) => {
         const data: GeoJSON.Feature = { type: "Feature", properties: {}, geometry };
-        if (map.getSource("route")) {
-          (map.getSource("route") as mapboxgl.GeoJSONSource).setData(data);
-        } else {
-          map.addSource("route", { type: "geojson", data });
-          map.addLayer({
-            id: "route",
-            type: "line",
-            source: "route",
-            layout: { "line-join": "round", "line-cap": "round" },
-            paint: {
-              "line-color": "#cf447a",
-              "line-width": 3,
-              "line-dasharray": [1, 2.5],
-              "line-opacity": 0.85,
-            },
-          });
+        map.addSource("route", { type: "geojson", data });
+        map.addLayer({
+          id: "route",
+          type: "line",
+          source: "route",
+          layout: { "line-join": "round", "line-cap": "round" },
+          paint: {
+            "line-color": "#cf447a",
+            "line-width": 3,
+            "line-dasharray": [1, 2.5],
+            "line-opacity": 0.85,
+          },
+        });
+
+        // Arrow direction indicators
+        if (!map.hasImage("route-arrow")) {
+          const size = 24;
+          const canvas = document.createElement("canvas");
+          canvas.width = size; canvas.height = size;
+          const ctx = canvas.getContext("2d")!;
+          ctx.fillStyle = "#cf447a";
+          ctx.beginPath();
+          ctx.moveTo(4, 5); ctx.lineTo(20, 12); ctx.lineTo(4, 19);
+          ctx.closePath(); ctx.fill();
+          map.addImage("route-arrow", canvas);
         }
+        map.addLayer({
+          id: "route-arrows",
+          type: "symbol",
+          source: "route",
+          layout: {
+            "symbol-placement": "line",
+            "symbol-spacing": 70,
+            "icon-image": "route-arrow",
+            "icon-size": 0.65,
+            "icon-allow-overlap": true,
+            "icon-ignore-placement": true,
+          },
+        });
       };
 
       // Fetch real walking route from Mapbox Directions API

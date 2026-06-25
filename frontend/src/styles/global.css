@@ -391,6 +391,11 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
 .map-marker-pulse{position:absolute;inset:0;border-radius:50%;background:rgba(207,68,122,0.25);animation:pinPulse 2s ease infinite}
 .map-marker-dot{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--plum));color:white;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px var(--plum-glow);border:2px solid rgba(255,255,255,0.15);transition:transform 0.2s ease}
 .map-marker:hover .map-marker-dot{transform:scale(1.15)}
+.map-marker-dot--start{background:linear-gradient(135deg,#22c55e,#16a34a)!important;box-shadow:0 4px 14px rgba(34,197,94,0.45)!important}
+.map-marker-dot--end{background:linear-gradient(135deg,#ef4444,#b91c1c)!important;box-shadow:0 4px 14px rgba(239,68,68,0.45)!important}
+.map-marker-label{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:0.6rem;font-weight:800;letter-spacing:0.05em;padding:1px 5px;border-radius:4px;white-space:nowrap;pointer-events:none}
+.map-marker-label--start{background:#22c55e;color:#fff}
+.map-marker-label--end{background:#ef4444;color:#fff}
 .mapboxgl-popup-content{padding:0!important;border-radius:12px!important;box-shadow:var(--shadow-card)!important;border:1px solid var(--glass-border)!important;background:var(--bg-elevated)!important;overflow:hidden}
 .mapboxgl-popup-tip{display:none!important}
 .popup-inner{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;min-width:180px;max-width:240px}

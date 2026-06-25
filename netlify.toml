@@ -1,0 +1,8 @@
+[build]
+  base    = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_BACKEND_WS = "wss://digital-earth-god-backend-production.up.railway.app"

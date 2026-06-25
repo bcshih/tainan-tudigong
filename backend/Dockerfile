@@ -13,12 +13,12 @@ COPY dijizu_agent_new/ ./dijizu_agent_new/
 COPY apps/__init__.py ./apps/__init__.py
 COPY apps/api/ ./apps/api/
 COPY data/ ./data/
+COPY start_railway.sh ./start_railway.sh
 
 # Install Python dependencies (no dev extras)
-RUN pip install --no-cache-dir -e .
+RUN pip install --no-cache-dir -e . && chmod +x /app/start_railway.sh
 
 # Expose default port (Railway overrides via $PORT env var)
 EXPOSE 8080
 
-# Use shell form so ${PORT:-8080} expands at runtime
-CMD uvicorn apps.api.gateway:app --host 0.0.0.0 --port ${PORT:-8080}
+CMD ["/app/start_railway.sh"]

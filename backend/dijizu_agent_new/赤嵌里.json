@@ -1,0 +1,1591 @@
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    {
+      "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+      "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+      "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+      "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+      "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan",
+      "type": "VillageAgent",
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "name": {
+        "type": "Property",
+        "value": "赤嵌里地基主"
+      },
+      "persona": {
+        "type": "Property",
+        "value": "倚老賣老、講究傳統。比起商業開發，更在意老建築的保存與巷弄文化。對歷史導覽極度熱情，但對噪音與違停非常敏感。"
+      },
+      "district": {
+        "type": "Property",
+        "value": "中西區"
+      },
+      "areaName": {
+        "type": "Property",
+        "value": "赤嵌里"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.202,
+            22.997
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.997,
+          "longitude": 120.202,
+          "address": "臺南市中西區赤嵌里",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "spatialBoundary": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.201253,
+                22.999662
+              ],
+              [
+                120.201532,
+                22.99956
+              ],
+              [
+                120.201885,
+                22.999424
+              ],
+              [
+                120.20227,
+                22.999286
+              ],
+              [
+                120.202596,
+                22.999169
+              ],
+              [
+                120.202833,
+                22.999086
+              ],
+              [
+                120.202916,
+                22.999057
+              ],
+              [
+                120.202977,
+                22.999042
+              ],
+              [
+                120.20327,
+                22.998935
+              ],
+              [
+                120.203398,
+                22.998891
+              ],
+              [
+                120.20359,
+                22.998824
+              ],
+              [
+                120.203855,
+                22.998731
+              ],
+              [
+                120.204116,
+                22.998645
+              ],
+              [
+                120.204191,
+                22.998629
+              ],
+              [
+                120.204265,
+                22.998602
+              ],
+              [
+                120.204316,
+                22.998574
+              ],
+              [
+                120.204367,
+                22.998571
+              ],
+              [
+                120.204517,
+                22.998521
+              ],
+              [
+                120.204634,
+                22.998476
+              ],
+              [
+                120.204681,
+                22.998458
+              ],
+              [
+                120.204895,
+                22.99839
+              ],
+              [
+                120.204929,
+                22.998383
+              ],
+              [
+                120.204956,
+                22.998378
+              ],
+              [
+                120.205187,
+                22.99831
+              ],
+              [
+                120.20531,
+                22.9983
+              ],
+              [
+                120.205557,
+                22.998244
+              ],
+              [
+                120.20568,
+                22.99822
+              ],
+              [
+                120.205897,
+                22.998182
+              ],
+              [
+                120.205986,
+                22.998171
+              ],
+              [
+                120.206127,
+                22.998152
+              ],
+              [
+                120.206273,
+                22.998129
+              ],
+              [
+                120.206417,
+                22.998109
+              ],
+              [
+                120.20666,
+                22.998074
+              ],
+              [
+                120.20679,
+                22.998056
+              ],
+              [
+                120.206985,
+                22.998028
+              ],
+              [
+                120.207006,
+                22.998025
+              ],
+              [
+                120.20719,
+                22.997997
+              ],
+              [
+                120.207421,
+                22.997965
+              ],
+              [
+                120.207681,
+                22.997931
+              ],
+              [
+                120.207802,
+                22.997911
+              ],
+              [
+                120.208086,
+                22.997878
+              ],
+              [
+                120.208243,
+                22.997827
+              ],
+              [
+                120.20835,
+                22.997807
+              ],
+              [
+                120.208533,
+                22.997773
+              ],
+              [
+                120.208645,
+                22.997749
+              ],
+              [
+                120.208845,
+                22.997711
+              ],
+              [
+                120.208941,
+                22.997691
+              ],
+              [
+                120.209439,
+                22.997603
+              ],
+              [
+                120.209756,
+                22.997546
+              ],
+              [
+                120.209887,
+                22.99752
+              ],
+              [
+                120.210219,
+                22.997457
+              ],
+              [
+                120.210409,
+                22.997418
+              ],
+              [
+                120.210591,
+                22.99738
+              ],
+              [
+                120.210704,
+                22.997356
+              ],
+              [
+                120.210837,
+                22.997317
+              ],
+              [
+                120.210935,
+                22.997296
+              ],
+              [
+                120.210997,
+                22.997297
+              ],
+              [
+                120.211082,
+                22.99733
+              ],
+              [
+                120.211128,
+                22.997361
+              ],
+              [
+                120.211289,
+                22.997499
+              ],
+              [
+                120.211341,
+                22.99753
+              ],
+              [
+                120.211404,
+                22.997574
+              ],
+              [
+                120.211455,
+                22.997592
+              ],
+              [
+                120.211521,
+                22.997612
+              ],
+              [
+                120.211573,
+                22.997621
+              ],
+              [
+                120.211687,
+                22.997638
+              ],
+              [
+                120.21175,
+                22.997636
+              ],
+              [
+                120.211837,
+                22.997624
+              ],
+              [
+                120.211964,
+                22.997577
+              ],
+              [
+                120.212067,
+                22.997542
+              ],
+              [
+                120.212282,
+                22.997473
+              ],
+              [
+                120.212255,
+                22.997358
+              ],
+              [
+                120.212201,
+                22.997161
+              ],
+              [
+                120.212184,
+                22.997096
+              ],
+              [
+                120.212171,
+                22.99709
+              ],
+              [
+                120.212016,
+                22.997015
+              ],
+              [
+                120.211873,
+                22.996945
+              ],
+              [
+                120.211669,
+                22.996806
+              ],
+              [
+                120.211642,
+                22.996808
+              ],
+              [
+                120.210901,
+                22.996357
+              ],
+              [
+                120.209891,
+                22.995721
+              ],
+              [
+                120.209651,
+                22.995575
+              ],
+              [
+                120.209491,
+                22.995471
+              ],
+              [
+                120.208489,
+                22.994796
+              ],
+              [
+                120.208474,
+                22.994785
+              ],
+              [
+                120.208147,
+                22.994549
+              ],
+              [
+                120.207538,
+                22.994163
+              ],
+              [
+                120.207419,
+                22.994088
+              ],
+              [
+                120.207286,
+                22.994002
+              ],
+              [
+                120.206697,
+                22.993623
+              ],
+              [
+                120.205838,
+                22.993082
+              ],
+              [
+                120.205813,
+                22.993067
+              ],
+              [
+                120.205454,
+                22.992853
+              ],
+              [
+                120.20507,
+                22.992616
+              ],
+              [
+                120.204597,
+                22.992808
+              ],
+              [
+                120.204285,
+                22.992988
+              ],
+              [
+                120.204163,
+                22.993059
+              ],
+              [
+                120.204144,
+                22.99307
+              ],
+              [
+                120.204106,
+                22.993092
+              ],
+              [
+                120.203063,
+                22.993359
+              ],
+              [
+                120.203033,
+                22.993367
+              ],
+              [
+                120.203284,
+                22.994154
+              ],
+              [
+                120.20351,
+                22.994876
+              ],
+              [
+                120.203663,
+                22.995268
+              ],
+              [
+                120.203732,
+                22.995445
+              ],
+              [
+                120.203944,
+                22.995988
+              ],
+              [
+                120.203977,
+                22.996074
+              ],
+              [
+                120.204063,
+                22.996295
+              ],
+              [
+                120.204073,
+                22.99632
+              ],
+              [
+                120.203532,
+                22.996513
+              ],
+              [
+                120.203494,
+                22.996527
+              ],
+              [
+                120.203067,
+                22.996684
+              ],
+              [
+                120.20297,
+                22.996718
+              ],
+              [
+                120.202457,
+                22.996912
+              ],
+              [
+                120.202443,
+                22.996875
+              ],
+              [
+                120.202209,
+                22.996267
+              ],
+              [
+                120.202176,
+                22.996181
+              ],
+              [
+                120.201989,
+                22.996037
+              ],
+              [
+                120.201963,
+                22.995966
+              ],
+              [
+                120.201908,
+                22.995819
+              ],
+              [
+                120.201894,
+                22.995783
+              ],
+              [
+                120.20176,
+                22.995424
+              ],
+              [
+                120.201384,
+                22.995558
+              ],
+              [
+                120.200546,
+                22.995855
+              ],
+              [
+                120.199623,
+                22.996188
+              ],
+              [
+                120.199661,
+                22.996334
+              ],
+              [
+                120.199695,
+                22.996433
+              ],
+              [
+                120.199838,
+                22.996858
+              ],
+              [
+                120.199852,
+                22.996899
+              ],
+              [
+                120.199949,
+                22.997186
+              ],
+              [
+                120.199958,
+                22.997216
+              ],
+              [
+                120.200039,
+                22.997432
+              ],
+              [
+                120.200087,
+                22.997562
+              ],
+              [
+                120.200134,
+                22.997681
+              ],
+              [
+                120.200142,
+                22.997701
+              ],
+              [
+                120.200253,
+                22.997984
+              ],
+              [
+                120.200267,
+                22.998017
+              ],
+              [
+                120.200316,
+                22.998096
+              ],
+              [
+                120.200386,
+                22.998212
+              ],
+              [
+                120.200601,
+                22.998564
+              ],
+              [
+                120.200944,
+                22.999162
+              ],
+              [
+                120.200996,
+                22.999251
+              ],
+              [
+                120.201208,
+                22.999589
+              ],
+              [
+                120.201239,
+                22.99964
+              ],
+              [
+                120.201249,
+                22.999664
+              ],
+              [
+                120.201253,
+                22.999662
+              ]
+            ]
+          ]
+        }
+      },
+      "managedBy": {
+        "type": "Property",
+        "value": "赤嵌里里長辦公室"
+      },
+      "archetype": {
+        "type": "Property",
+        "value": "文史守護陣營"
+      },
+      "history": {
+        "type": "Property",
+        "value": "台南市最早開發的區域之一，擁有赤崁樓、祀典武廟等一級古蹟，巷弄間保留大量清代與日治時期紋理。"
+      },
+      "zoning": {
+        "type": "Property",
+        "value": "高密度商業區與歷史保護區交錯，巷弄狹窄。"
+      },
+      "referencePois": {
+        "type": "Property",
+        "value": [
+          {
+            "poi_id": "POI-CH-001",
+            "name": "赤崁樓",
+            "category": "歷史古蹟",
+            "description": "荷治時期興建的普羅民遮城，台南最具代表性的歷史地標。",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.2023,
+                22.9974
+              ]
+            }
+          },
+          {
+            "poi_id": "POI-NEW-8657",
+            "name": "",
+            "category": "",
+            "description": "",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.2,
+                22.99
+              ]
+            }
+          }
+        ]
+      },
+      "citizenOpinions": {
+        "type": "Property",
+        "value": [
+          {
+            "issue_id": "WISH-CH-001",
+            "type": "抱怨/通報",
+            "content": "赤崁東街假日觀光客太多，機車亂停導致住戶無法出入。",
+            "status": "待處理",
+            "timestamp": "2026-06-21T08:30:00Z"
+          }
+        ]
+      },
+      "sourceAgentId": {
+        "type": "Property",
+        "value": "urn:ngsi-ld:EarthGodAgent:Tainan:WestCentral:Chihkan"
+      },
+      "coverageCategories": {
+        "type": "Property",
+        "value": [
+          "daily_activity",
+          "market_event",
+          "local_history",
+          "weather",
+          "hazard",
+          "construction",
+          "traffic",
+          "new_shop",
+          "community_topic"
+        ]
+      },
+      "contactChannel": {
+        "type": "Property",
+        "value": "router"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:obs-007",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T12:30:00+08:00",
+      "modifiedAt": "2026-06-23T12:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "obs-007"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "traffic"
+      },
+      "name": {
+        "type": "Property",
+        "value": "民權路午後車流增加"
+      },
+      "description": {
+        "type": "Property",
+        "value": "民權路二段機車流較密，兩人步行建議使用北側騎樓。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.1998,
+            22.9971
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9971,
+          "longitude": 120.1998,
+          "address": "台南市中西區民權路二段",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "巡守回報 mock",
+          "url": null,
+          "reference_id": "mock-007"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-21T13:10:00+08:00",
+        "observedAt": "2026-06-21T13:10:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T12:30:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "車流",
+          "步行注意",
+          "騎樓"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.86
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 34
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:sim-weather-20260623-li-chihkan",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T13:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "sim-weather-20260623-li-chihkan"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "weather"
+      },
+      "name": {
+        "type": "Property",
+        "value": "赤嵌里模擬天氣：32.7°C"
+      },
+      "description": {
+        "type": "Property",
+        "value": "六月台南夏季氣候情境推估：多雲；氣溫 32.7°C、相對濕度 79%、風速約 2 m/s。資料為情境模擬，供介面測試與體驗使用。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.202,
+            22.997
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.997,
+          "longitude": 120.202,
+          "address": "臺南市中西區赤嵌里（氣象情境點位）",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "台南夏季氣候情境 mock（推估）",
+          "url": null,
+          "reference_id": "simulated-weather-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00",
+        "observedAt": "2026-06-23T13:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "天氣",
+          "模擬",
+          "情境推估",
+          "台南夏季情境",
+          "氣溫",
+          "相對濕度",
+          "風速",
+          "雲量增加",
+          "悶熱"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.35
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:hazard-sim-20260623-chihkan-crossing",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T14:00:00+08:00",
+      "modifiedAt": "2026-06-23T14:00:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "hazard-sim-20260623-chihkan-crossing"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "hazard"
+      },
+      "name": {
+        "type": "Property",
+        "value": "示範風險點：觀光路口行人穿越"
+      },
+      "description": {
+        "type": "Property",
+        "value": "以赤嵌里主要路口周邊作為情境點位；假日或活動時行人穿越頻繁，駕駛與行人均應留意轉向車流。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2021,
+            22.9971
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9971,
+          "longitude": 120.2021,
+          "address": "臺南市中西區赤嵌里主要路口周邊（示範點位）",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "里長 Agent 風險情境點位",
+          "url": null,
+          "reference_id": "hazard-scenario-v1"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T14:00:00+08:00",
+        "observedAt": "2026-06-23T14:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T14:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "危險通報",
+          "情境模擬",
+          "需現場確認",
+          "行人穿越",
+          "路口安全"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.25
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:agent-poi-poi-ch-001",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T15:00:00+08:00",
+      "modifiedAt": "2026-06-23T20:15:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "agent-poi-poi-ch-001"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "赤崁樓"
+      },
+      "description": {
+        "type": "Property",
+        "value": "原為荷蘭人建的普羅民遮城，台南最著名國定古蹟。庭院內排列的御賜九座贔屭碑是必看歷史焦點。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2025,
+            22.9964
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9964,
+          "longitude": 120.2025,
+          "address": "臺南市中西區民族路二段212號",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b02-21"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00",
+        "observedAt": "2026-06-23T20:15:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "古蹟",
+          "歷史",
+          "名勝",
+          "地標",
+          "夜景",
+          "POI",
+          "使用者提供",
+          "分類:景點",
+          "營業時間已提供"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.95
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 48000
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "08:30-21:30",
+          "tue": "08:30-21:30",
+          "wed": "08:30-21:30",
+          "thu": "08:30-21:30",
+          "fri": "08:30-21:30",
+          "sat": "08:30-21:30",
+          "sun": "08:30-21:30"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": "台南市民憑身分證免門票，全票配合文化局規範調整"
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "within_boundary"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:manual-poi-20260623-b02-22",
+      "type": "LocalObservation",
+      "observationId": {
+        "type": "Property",
+        "value": "manual-poi-20260623-b02-22"
+      },
+      "createdAt": "2026-06-23T20:15:00+08:00",
+      "modifiedAt": "2026-06-23T20:15:00+08:00",
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "祀典武廟"
+      },
+      "description": {
+        "type": "Property",
+        "value": "國定古蹟，全台唯一列入官方祀典的大天后宮旁武廟，其高聳的朱紅古牆（永福路側）是熱門拍照打卡點。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2018,
+            22.9961
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9961,
+          "longitude": 120.2018,
+          "address": "臺南市中西區永福路二段229號",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b02-22"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00",
+        "observedAt": "2026-06-23T20:15:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "寺廟",
+          "古蹟",
+          "歷史",
+          "免門票",
+          "拍照",
+          "POI",
+          "使用者提供",
+          "分類:景點",
+          "營業時間已提供"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.95
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 18500
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "06:00-21:00",
+          "tue": "06:00-21:00",
+          "wed": "06:00-21:00",
+          "thu": "06:00-21:00",
+          "fri": "06:00-21:00",
+          "sat": "06:00-21:30",
+          "sun": "06:00-21:30"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": "後殿月老廟非常靈驗，求紅線與緣粉的排隊人潮眾多"
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "within_boundary"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:manual-poi-20260623-b02-23",
+      "type": "LocalObservation",
+      "observationId": {
+        "type": "Property",
+        "value": "manual-poi-20260623-b02-23"
+      },
+      "createdAt": "2026-06-23T20:15:00+08:00",
+      "modifiedAt": "2026-06-23T20:15:00+08:00",
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "新美街 (米街)"
+      },
+      "description": {
+        "type": "Property",
+        "value": "古稱米街，近年翻轉為充滿日式風格、壁畫塗鴉與新興日式居酒屋、獨立選物店交織的文青慢活街區。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2012,
+            22.9968
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9968,
+          "longitude": 120.2012,
+          "address": "臺南市中西區新美街（赤嵌段）",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b02-23"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00",
+        "observedAt": "2026-06-23T20:15:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "老街",
+          "壁畫",
+          "居酒屋",
+          "散步",
+          "拍照",
+          "POI",
+          "使用者提供",
+          "分類:景點",
+          "營業時間已提供"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.9
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 7500
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "24 hours",
+          "tue": "24 hours",
+          "wed": "24 hours",
+          "thu": "24 hours",
+          "fri": "24 hours",
+          "sat": "24 hours",
+          "sun": "24 hours"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": null
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "within_boundary"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:manual-poi-20260623-b02-25",
+      "type": "LocalObservation",
+      "observationId": {
+        "type": "Property",
+        "value": "manual-poi-20260623-b02-25"
+      },
+      "createdAt": "2026-06-23T20:15:00+08:00",
+      "modifiedAt": "2026-06-23T20:15:00+08:00",
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Chihkan"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-chihkan"
+      },
+      "category": {
+        "type": "Property",
+        "value": "daily_activity"
+      },
+      "name": {
+        "type": "Property",
+        "value": "Paripari apt. 古物咖啡"
+      },
+      "description": {
+        "type": "Property",
+        "value": "結合昭和復古風咖啡廳、日式古物選品與民宿的複合式老屋，綠色磁磚外牆是IG熱門打卡背景。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2032,
+            22.9958
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9958,
+          "longitude": 120.2032,
+          "address": "臺南市中西區忠義路二段158巷9號",
+          "district": "中西區",
+          "neighborhood": "赤嵌里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b02-25"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00",
+        "observedAt": "2026-06-23T20:15:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "咖啡",
+          "復古",
+          "老屋",
+          "IG打卡",
+          "選物店",
+          "POI",
+          "使用者提供",
+          "分類:咖啡",
+          "營業時間已提供",
+          "最近里長分派",
+          "需里界確認"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.9
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 4200
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "11:00-18:00",
+          "tue": "11:00-18:00",
+          "wed": "closed",
+          "thu": "11:00-18:00",
+          "fri": "11:00-18:00",
+          "sat": "11:00-19:00",
+          "sun": "11:00-18:00"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:15:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": null
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "nearest_agent"
+      }
+    }
+  ]
+}

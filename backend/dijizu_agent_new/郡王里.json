@@ -1,0 +1,1136 @@
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    {
+      "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+      "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+      "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+      "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+      "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang",
+      "type": "VillageAgent",
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "name": {
+        "type": "Property",
+        "value": "郡王里地基主"
+      },
+      "persona": {
+        "type": "Property",
+        "value": "正氣凜然、愛國心強。視延平郡王祠為精神象徵，對歷史教育充滿熱忱，但對周邊停車亂象感到困擾。常以鄭成功開台精神鼓勵居民。"
+      },
+      "district": {
+        "type": "Property",
+        "value": "中西區"
+      },
+      "areaName": {
+        "type": "Property",
+        "value": "郡王里"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2065,
+            22.9905
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9905,
+          "longitude": 120.2065,
+          "address": "臺南市中西區郡王里",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "spatialBoundary": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.207455,
+                22.988988
+              ],
+              [
+                120.207563,
+                22.989005
+              ],
+              [
+                120.207656,
+                22.989038
+              ],
+              [
+                120.207693,
+                22.98899
+              ],
+              [
+                120.207918,
+                22.988697
+              ],
+              [
+                120.208257,
+                22.988277
+              ],
+              [
+                120.208471,
+                22.988012
+              ],
+              [
+                120.208492,
+                22.987987
+              ],
+              [
+                120.208773,
+                22.987639
+              ],
+              [
+                120.209182,
+                22.987134
+              ],
+              [
+                120.209232,
+                22.987073
+              ],
+              [
+                120.209327,
+                22.986959
+              ],
+              [
+                120.209938,
+                22.98625
+              ],
+              [
+                120.210669,
+                22.985447
+              ],
+              [
+                120.210964,
+                22.985136
+              ],
+              [
+                120.2112,
+                22.984816
+              ],
+              [
+                120.211213,
+                22.984798
+              ],
+              [
+                120.211208,
+                22.98469
+              ],
+              [
+                120.211197,
+                22.984691
+              ],
+              [
+                120.211192,
+                22.984692
+              ],
+              [
+                120.211116,
+                22.984673
+              ],
+              [
+                120.211083,
+                22.984665
+              ],
+              [
+                120.210985,
+                22.984634
+              ],
+              [
+                120.210921,
+                22.984614
+              ],
+              [
+                120.210543,
+                22.984463
+              ],
+              [
+                120.21041,
+                22.984383
+              ],
+              [
+                120.210323,
+                22.984293
+              ],
+              [
+                120.210249,
+                22.984176
+              ],
+              [
+                120.210197,
+                22.984093
+              ],
+              [
+                120.210151,
+                22.984053
+              ],
+              [
+                120.210097,
+                22.984036
+              ],
+              [
+                120.210093,
+                22.984035
+              ],
+              [
+                120.209859,
+                22.984222
+              ],
+              [
+                120.20968,
+                22.98435
+              ],
+              [
+                120.209386,
+                22.98448
+              ],
+              [
+                120.209405,
+                22.984516
+              ],
+              [
+                120.208939,
+                22.984709
+              ],
+              [
+                120.208803,
+                22.984114
+              ],
+              [
+                120.208797,
+                22.984115
+              ],
+              [
+                120.208707,
+                22.98369
+              ],
+              [
+                120.208626,
+                22.983319
+              ],
+              [
+                120.208558,
+                22.982897
+              ],
+              [
+                120.208543,
+                22.982831
+              ],
+              [
+                120.208489,
+                22.982696
+              ],
+              [
+                120.208465,
+                22.982567
+              ],
+              [
+                120.208388,
+                22.982569
+              ],
+              [
+                120.207622,
+                22.982585
+              ],
+              [
+                120.207214,
+                22.982594
+              ],
+              [
+                120.207128,
+                22.982596
+              ],
+              [
+                120.206978,
+                22.982598
+              ],
+              [
+                120.205914,
+                22.982614
+              ],
+              [
+                120.205862,
+                22.982614
+              ],
+              [
+                120.205506,
+                22.98262
+              ],
+              [
+                120.205501,
+                22.981663
+              ],
+              [
+                120.2055,
+                22.981507
+              ],
+              [
+                120.205499,
+                22.981365
+              ],
+              [
+                120.205452,
+                22.981367
+              ],
+              [
+                120.204966,
+                22.981384
+              ],
+              [
+                120.203731,
+                22.981398
+              ],
+              [
+                120.203699,
+                22.981398
+              ],
+              [
+                120.203706,
+                22.981447
+              ],
+              [
+                120.203759,
+                22.98185
+              ],
+              [
+                120.203789,
+                22.98207
+              ],
+              [
+                120.203794,
+                22.982107
+              ],
+              [
+                120.203818,
+                22.9823
+              ],
+              [
+                120.203862,
+                22.98262
+              ],
+              [
+                120.203925,
+                22.983284
+              ],
+              [
+                120.20398,
+                22.983689
+              ],
+              [
+                120.204011,
+                22.984012
+              ],
+              [
+                120.204015,
+                22.984051
+              ],
+              [
+                120.204088,
+                22.984796
+              ],
+              [
+                120.204126,
+                22.985089
+              ],
+              [
+                120.204142,
+                22.985217
+              ],
+              [
+                120.204147,
+                22.985255
+              ],
+              [
+                120.204185,
+                22.985542
+              ],
+              [
+                120.20419,
+                22.98558
+              ],
+              [
+                120.204233,
+                22.985904
+              ],
+              [
+                120.204238,
+                22.985941
+              ],
+              [
+                120.204279,
+                22.986283
+              ],
+              [
+                120.204321,
+                22.986626
+              ],
+              [
+                120.204345,
+                22.986829
+              ],
+              [
+                120.204355,
+                22.98691
+              ],
+              [
+                120.204359,
+                22.986943
+              ],
+              [
+                120.204367,
+                22.98702
+              ],
+              [
+                120.204385,
+                22.98719
+              ],
+              [
+                120.204419,
+                22.987436
+              ],
+              [
+                120.204483,
+                22.987903
+              ],
+              [
+                120.204553,
+                22.988551
+              ],
+              [
+                120.204558,
+                22.988591
+              ],
+              [
+                120.204607,
+                22.989041
+              ],
+              [
+                120.207455,
+                22.988988
+              ]
+            ]
+          ]
+        }
+      },
+      "managedBy": {
+        "type": "Property",
+        "value": "郡王里里長辦公室"
+      },
+      "archetype": {
+        "type": "Property",
+        "value": "英雄崇拜陣營"
+      },
+      "history": {
+        "type": "Property",
+        "value": "以紀念鄭成功而得名，擁有延平郡王祠（福州式祠堂建築）與臺南市立博物館，為府城重要的歷史紀念與文化教育區。"
+      },
+      "zoning": {
+        "type": "Property",
+        "value": "文教住宅混合區，鄰近公園綠地，環境清幽。"
+      },
+      "referencePois": {
+        "type": "Property",
+        "value": [
+          {
+            "poi_id": "POI-JW-001",
+            "name": "延平郡王祠",
+            "category": "歷史古蹟",
+            "description": "全台最早的福州式建築祠堂，供奉開台聖王鄭成功，園區結合中式庭園與日式神社遺構。",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.2065,
+                22.9905
+              ]
+            }
+          },
+          {
+            "poi_id": "POI-NEW-3241",
+            "name": "",
+            "category": "",
+            "description": "",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.206,
+                22.99
+              ]
+            }
+          }
+        ]
+      },
+      "citizenOpinions": {
+        "type": "Property",
+        "value": [
+          {
+            "issue_id": "WISH-JW-001",
+            "type": "抱怨/通報",
+            "content": "郡王祠周邊假日遊覽車違停嚴重，影響居民出入與行車安全。",
+            "status": "待處理",
+            "timestamp": "2026-06-21T08:30:00Z"
+          }
+        ]
+      },
+      "sourceAgentId": {
+        "type": "Property",
+        "value": "urn:ngsi-ld:EarthGodAgent:Tainan:WestCentral:Junwang"
+      },
+      "coverageCategories": {
+        "type": "Property",
+        "value": [
+          "daily_activity",
+          "market_event",
+          "local_history",
+          "weather",
+          "hazard",
+          "construction",
+          "traffic",
+          "new_shop",
+          "community_topic"
+        ]
+      },
+      "contactChannel": {
+        "type": "Property",
+        "value": "router"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:poi-20260623-10",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T12:30:00+08:00",
+      "modifiedAt": "2026-06-23T12:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "poi-20260623-10"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "daily_activity"
+      },
+      "name": {
+        "type": "Property",
+        "value": "保國衛民包廂式漫畫所"
+      },
+      "description": {
+        "type": "Property",
+        "value": "24 小時漫畫包廂、飲料暢飲與可吸貓；服務現況需向店家確認。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2096,
+            22.9918
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9918,
+          "longitude": 120.2096,
+          "address": "台南市中西區青年路140號2樓",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者提供 POI JSON",
+          "url": null,
+          "reference_id": "user-poi-json-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T12:30:00+08:00",
+        "observedAt": "2026-06-23T12:30:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T12:30:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "POI",
+          "手動匯入",
+          "其他",
+          "中西區"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.78
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:sim-weather-20260623-li-junwang",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T13:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "sim-weather-20260623-li-junwang"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "weather"
+      },
+      "name": {
+        "type": "Property",
+        "value": "郡王里模擬天氣：33.4°C"
+      },
+      "description": {
+        "type": "Property",
+        "value": "六月台南夏季氣候情境推估：局部多雲；氣溫 33.4°C、相對濕度 76%、風速約 2.2 m/s。資料為情境模擬，供介面測試與體驗使用。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2065,
+            22.9905
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9905,
+          "longitude": 120.2065,
+          "address": "臺南市中西區郡王里（氣象情境點位）",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "台南夏季氣候情境 mock（推估）",
+          "url": null,
+          "reference_id": "simulated-weather-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00",
+        "observedAt": "2026-06-23T13:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "天氣",
+          "模擬",
+          "情境推估",
+          "台南夏季情境",
+          "氣溫",
+          "相對濕度",
+          "風速",
+          "悶熱",
+          "補水"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.35
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:agent-poi-poi-jw-001",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T15:00:00+08:00",
+      "modifiedAt": "2026-06-23T20:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "agent-poi-poi-jw-001"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "延平郡王祠（歷史文化園區）"
+      },
+      "description": {
+        "type": "Property",
+        "value": "全台最早主祀鄭成功的官祀廟宇，融合福州式建築與中式庭園景觀，綠意盎然，內設有鄭成功文物館。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2075,
+            22.988
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.988,
+          "longitude": 120.2075,
+          "address": "臺南市中西區開山路152號（臨近法華里生活圈）",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b03-07"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00",
+        "observedAt": "2026-06-23T20:30:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "古蹟",
+          "歷史",
+          "庭園",
+          "免門票",
+          "散步",
+          "POI",
+          "使用者提供",
+          "分類:景點",
+          "營業時間已提供",
+          "地址名稱線索確認",
+          "需里界確認"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.95
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 14500
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "08:30-17:30",
+          "tue": "08:30-17:30",
+          "wed": "08:30-17:30",
+          "thu": "08:30-17:30",
+          "fri": "08:30-17:30",
+          "sat": "08:30-17:30",
+          "sun": "08:30-17:30"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": null
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "manual"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:manual-poi-20260623-b03-08",
+      "type": "LocalObservation",
+      "observationId": {
+        "type": "Property",
+        "value": "manual-poi-20260623-b03-08"
+      },
+      "createdAt": "2026-06-23T20:30:00+08:00",
+      "modifiedAt": "2026-06-23T20:30:00+08:00",
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "祿記包子（包子祿）"
+      },
+      "description": {
+        "type": "Property",
+        "value": "創立於清光緒年間的百年祕境肉包店，招牌水晶餃透亮Q彈、黑豬肉包香氣迷人，常一出爐即秒殺。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2065,
+            22.9892
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9892,
+          "longitude": 120.2065,
+          "address": "臺南市中西區開山路3巷27號（法華、開山生活圈帶）",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b03-08"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00",
+        "observedAt": "2026-06-23T20:30:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "美食",
+          "水晶餃",
+          "肉包",
+          "百年老店",
+          "限量",
+          "POI",
+          "使用者提供",
+          "分類:美食",
+          "營業時間已提供"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.9
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 4100
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "08:00-17:30",
+          "tue": "08:00-17:30",
+          "wed": "08:00-17:30",
+          "thu": "08:00-17:30",
+          "fri": "08:00-17:30",
+          "sat": "08:00-17:30",
+          "sun": "08:00-17:30"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:30:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": "建議提前電話預訂，現場購買水晶餃常需排隊"
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "within_boundary"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:manual-poi-20260623-b04-18",
+      "type": "LocalObservation",
+      "observationId": {
+        "type": "Property",
+        "value": "manual-poi-20260623-b04-18"
+      },
+      "createdAt": "2026-06-23T20:40:00+08:00",
+      "modifiedAt": "2026-06-23T20:40:00+08:00",
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Junwang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-junwang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "兩角銀古早味冬瓜茶 (開山店)"
+      },
+      "description": {
+        "type": "Property",
+        "value": "百年傳承的古法冬瓜茶店，區分不同甜度與炭焙香度，喝得出純天然冬瓜磚熬煮的清香與層次。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2062,
+            22.9901
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9901,
+          "longitude": 120.2062,
+          "address": "臺南市中西區開山路34號",
+          "district": "中西區",
+          "neighborhood": "郡王里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "使用者整理／店家官方／社群截圖",
+          "url": null,
+          "reference_id": "user-poi-import-20260623-b04-18"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:40:00+08:00",
+        "observedAt": "2026-06-23T20:40:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:40:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "飲料",
+          "冬瓜茶",
+          "古早味",
+          "百年老店",
+          "消暑",
+          "POI",
+          "使用者提供",
+          "分類:美食",
+          "營業時間已提供"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.9
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 2800
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      },
+      "openingHours": {
+        "type": "Property",
+        "value": {
+          "mon": "09:00-21:00",
+          "tue": "09:00-21:00",
+          "wed": "09:00-21:00",
+          "thu": "09:00-21:00",
+          "fri": "09:00-21:30",
+          "sat": "09:00-21:30",
+          "sun": "09:00-21:00"
+        }
+      },
+      "openingHoursUpdatedAt": {
+        "type": "Property",
+        "value": "2026-06-23T20:40:00+08:00"
+      },
+      "temporaryNotice": {
+        "type": "Property",
+        "value": null
+      },
+      "eventStartAt": {
+        "type": "Property",
+        "value": null
+      },
+      "eventEndAt": {
+        "type": "Property",
+        "value": null
+      },
+      "agentAssignmentMethod": {
+        "type": "Property",
+        "value": "within_boundary"
+      }
+    }
+  ]
+}

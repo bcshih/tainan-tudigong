@@ -1,0 +1,611 @@
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    {
+      "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+      "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+      "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+      "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+      "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Wutiaogang",
+      "type": "VillageAgent",
+      "agentId": {
+        "type": "Property",
+        "value": "li-wutiaogang"
+      },
+      "name": {
+        "type": "Property",
+        "value": "五條港里地基主"
+      },
+      "persona": {
+        "type": "Property",
+        "value": "豪邁大方、重視族群團結。熟知五條港的郊商歷史，常以水仙宮與普濟殿的故事教導後輩。對港道遺址的保存極為堅持，反對任何掩蓋歷史痕跡的開發。"
+      },
+      "district": {
+        "type": "Property",
+        "value": "中西區"
+      },
+      "areaName": {
+        "type": "Property",
+        "value": "五條港里"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.1975,
+            23.0005
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 23.0005,
+          "longitude": 120.1975,
+          "address": "臺南市中西區五條港里",
+          "district": "中西區",
+          "neighborhood": "五條港里"
+        }
+      },
+      "spatialBoundary": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.198954,
+                23.000478
+              ],
+              [
+                120.199098,
+                23.000433
+              ],
+              [
+                120.19938,
+                23.000331
+              ],
+              [
+                120.199652,
+                23.000235
+              ],
+              [
+                120.200025,
+                23.000102
+              ],
+              [
+                120.200382,
+                22.999976
+              ],
+              [
+                120.200768,
+                22.999838
+              ],
+              [
+                120.201135,
+                22.999706
+              ],
+              [
+                120.201249,
+                22.999664
+              ],
+              [
+                120.201239,
+                22.99964
+              ],
+              [
+                120.201208,
+                22.999589
+              ],
+              [
+                120.200996,
+                22.999251
+              ],
+              [
+                120.200944,
+                22.999162
+              ],
+              [
+                120.200601,
+                22.998564
+              ],
+              [
+                120.200386,
+                22.998212
+              ],
+              [
+                120.200316,
+                22.998096
+              ],
+              [
+                120.200267,
+                22.998017
+              ],
+              [
+                120.200253,
+                22.997984
+              ],
+              [
+                120.200142,
+                22.997701
+              ],
+              [
+                120.200134,
+                22.997681
+              ],
+              [
+                120.200087,
+                22.997562
+              ],
+              [
+                120.200039,
+                22.997432
+              ],
+              [
+                120.199958,
+                22.997216
+              ],
+              [
+                120.199949,
+                22.997186
+              ],
+              [
+                120.199852,
+                22.996899
+              ],
+              [
+                120.199838,
+                22.996858
+              ],
+              [
+                120.199695,
+                22.996433
+              ],
+              [
+                120.199661,
+                22.996334
+              ],
+              [
+                120.199623,
+                22.996188
+              ],
+              [
+                120.199577,
+                22.996084
+              ],
+              [
+                120.199576,
+                22.996079
+              ],
+              [
+                120.199572,
+                22.996061
+              ],
+              [
+                120.199476,
+                22.995651
+              ],
+              [
+                120.199268,
+                22.99478
+              ],
+              [
+                120.199206,
+                22.994517
+              ],
+              [
+                120.199187,
+                22.994523
+              ],
+              [
+                120.197873,
+                22.994956
+              ],
+              [
+                120.197537,
+                22.995087
+              ],
+              [
+                120.196603,
+                22.995359
+              ],
+              [
+                120.196903,
+                22.996147
+              ],
+              [
+                120.196953,
+                22.996277
+              ],
+              [
+                120.19706,
+                22.99655
+              ],
+              [
+                120.197209,
+                22.996894
+              ],
+              [
+                120.197339,
+                22.997238
+              ],
+              [
+                120.197555,
+                22.997716
+              ],
+              [
+                120.19765,
+                22.997927
+              ],
+              [
+                120.197723,
+                22.99809
+              ],
+              [
+                120.197776,
+                22.998206
+              ],
+              [
+                120.19778,
+                22.998216
+              ],
+              [
+                120.197852,
+                22.998408
+              ],
+              [
+                120.197912,
+                22.99857
+              ],
+              [
+                120.197943,
+                22.998652
+              ],
+              [
+                120.198023,
+                22.998861
+              ],
+              [
+                120.198202,
+                22.999288
+              ],
+              [
+                120.198248,
+                22.999398
+              ],
+              [
+                120.198302,
+                22.999522
+              ],
+              [
+                120.198336,
+                22.999601
+              ],
+              [
+                120.198642,
+                23.000307
+              ],
+              [
+                120.198691,
+                23.00042
+              ],
+              [
+                120.19874,
+                23.000534
+              ],
+              [
+                120.198748,
+                23.000552
+              ],
+              [
+                120.198954,
+                23.000478
+              ]
+            ]
+          ]
+        }
+      },
+      "managedBy": {
+        "type": "Property",
+        "value": "五條港里里長辦公室"
+      },
+      "archetype": {
+        "type": "Property",
+        "value": "港口記憶陣營"
+      },
+      "history": {
+        "type": "Property",
+        "value": "原水仙里與普濟里整編，核心位於昔日五條港區，水仙宮曾為北郊蘇萬利、南郊金永順、糖郊李勝興等郊商總部。普濟殿為府城歷史悠久的王爺廟。"
+      },
+      "zoning": {
+        "type": "Property",
+        "value": "歷史街區與住商混合，清代街屋與廟宇密集，觀光與居住功能並重。"
+      },
+      "referencePois": {
+        "type": "Property",
+        "value": [
+          {
+            "poi_id": "POI-WTG-001",
+            "name": "普濟殿",
+            "category": "宗教廟宇",
+            "description": "台南歷史悠久的王爺廟，每年元宵花燈展為五條港區年度盛事。",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.1975,
+                23.0005
+              ]
+            }
+          },
+          {
+            "poi_id": "POI-NEW-9523",
+            "name": "",
+            "category": "",
+            "description": "",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.197,
+                23
+              ]
+            }
+          }
+        ]
+      },
+      "citizenOpinions": {
+        "type": "Property",
+        "value": [
+          {
+            "issue_id": "WISH-WTG-001",
+            "type": "抱怨/通報",
+            "content": "普濟殿花燈季期間巷弄過於擁擠，居民日常出入受到嚴重影響。",
+            "status": "待處理",
+            "timestamp": "2026-06-21T08:30:00Z"
+          }
+        ]
+      },
+      "sourceAgentId": {
+        "type": "Property",
+        "value": "urn:ngsi-ld:EarthGodAgent:Tainan:WestCentral:Wutiaogang"
+      },
+      "coverageCategories": {
+        "type": "Property",
+        "value": [
+          "daily_activity",
+          "market_event",
+          "local_history",
+          "weather",
+          "hazard",
+          "construction",
+          "traffic",
+          "new_shop",
+          "community_topic"
+        ]
+      },
+      "contactChannel": {
+        "type": "Property",
+        "value": "router"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:sim-weather-20260623-li-wutiaogang",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T13:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "sim-weather-20260623-li-wutiaogang"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Wutiaogang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-wutiaogang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "weather"
+      },
+      "name": {
+        "type": "Property",
+        "value": "五條港里模擬天氣：32.9°C"
+      },
+      "description": {
+        "type": "Property",
+        "value": "六月台南夏季氣候情境推估：多雲，午後短暫雷雨機率；氣溫 32.9°C、相對濕度 80%、風速約 2.4 m/s。資料為情境模擬，供介面測試與體驗使用。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.1975,
+            23.0005
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 23.0005,
+          "longitude": 120.1975,
+          "address": "臺南市中西區五條港里（氣象情境點位）",
+          "district": "中西區",
+          "neighborhood": "五條港里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "台南夏季氣候情境 mock（推估）",
+          "url": null,
+          "reference_id": "simulated-weather-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00",
+        "observedAt": "2026-06-23T13:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "天氣",
+          "模擬",
+          "情境推估",
+          "台南夏季情境",
+          "氣溫",
+          "相對濕度",
+          "風速",
+          "午後雷雨機率",
+          "悶熱"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.35
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:agent-poi-poi-wtg-001",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T15:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:00:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "agent-poi-poi-wtg-001"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Wutiaogang"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-wutiaogang"
+      },
+      "category": {
+        "type": "Property",
+        "value": "local_history"
+      },
+      "name": {
+        "type": "Property",
+        "value": "普濟殿"
+      },
+      "description": {
+        "type": "Property",
+        "value": "台南歷史悠久的王爺廟，每年元宵花燈展為五條港區年度盛事。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.1975,
+            23.0005
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 23.0005,
+          "longitude": 120.1975,
+          "address": "臺南市中西區五條港里（普濟殿；來源僅提供座標）",
+          "district": "中西區",
+          "neighborhood": "五條港里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "partner",
+          "name": "地基主 Agent 管理器里別資料",
+          "url": null,
+          "reference_id": "POI-WTG-001"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-21T17:24:02.663Z",
+        "observedAt": "2026-06-21T17:24:02.663Z"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T15:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "POI",
+          "Agent基礎資料",
+          "來源座標",
+          "五條港里",
+          "宗教廟宇"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.75
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    {
+      "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+      "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+      "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+      "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+      "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Nanmei",
+      "type": "VillageAgent",
+      "agentId": {
+        "type": "Property",
+        "value": "li-nanmei"
+      },
+      "name": {
+        "type": "Property",
+        "value": "南美里地基主"
+      },
+      "persona": {
+        "type": "Property",
+        "value": "感性浪漫、充滿藝術氣息。對南美館與周邊古蹟群的美學價值極為自豪，積極推動街區美感提升。對視覺汙染（如違規廣告）特別敏感。"
+      },
+      "district": {
+        "type": "Property",
+        "value": "中西區"
+      },
+      "areaName": {
+        "type": "Property",
+        "value": "南美里"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2015,
+            22.9945
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9945,
+          "longitude": 120.2015,
+          "address": "臺南市中西區南美里",
+          "district": "中西區",
+          "neighborhood": "南美里"
+        }
+      },
+      "spatialBoundary": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.20297,
+                22.996718
+              ],
+              [
+                120.203067,
+                22.996684
+              ],
+              [
+                120.203494,
+                22.996527
+              ],
+              [
+                120.203532,
+                22.996513
+              ],
+              [
+                120.204073,
+                22.99632
+              ],
+              [
+                120.204063,
+                22.996295
+              ],
+              [
+                120.203977,
+                22.996074
+              ],
+              [
+                120.203944,
+                22.995988
+              ],
+              [
+                120.203732,
+                22.995445
+              ],
+              [
+                120.203663,
+                22.995268
+              ],
+              [
+                120.20351,
+                22.994876
+              ],
+              [
+                120.203284,
+                22.994154
+              ],
+              [
+                120.203033,
+                22.993367
+              ],
+              [
+                120.202958,
+                22.992962
+              ],
+              [
+                120.202925,
+                22.992784
+              ],
+              [
+                120.20277,
+                22.991947
+              ],
+              [
+                120.202557,
+                22.990892
+              ],
+              [
+                120.202257,
+                22.989601
+              ],
+              [
+                120.201294,
+                22.989803
+              ],
+              [
+                120.200868,
+                22.989892
+              ],
+              [
+                120.200355,
+                22.99
+              ],
+              [
+                120.199293,
+                22.990194
+              ],
+              [
+                120.199283,
+                22.990196
+              ],
+              [
+                120.199009,
+                22.990243
+              ],
+              [
+                120.198676,
+                22.990299
+              ],
+              [
+                120.19862,
+                22.990309
+              ],
+              [
+                120.198355,
+                22.990351
+              ],
+              [
+                120.19818,
+                22.990379
+              ],
+              [
+                120.197849,
+                22.990544
+              ],
+              [
+                120.197807,
+                22.990565
+              ],
+              [
+                120.19792,
+                22.990863
+              ],
+              [
+                120.197988,
+                22.991058
+              ],
+              [
+                120.198002,
+                22.991097
+              ],
+              [
+                120.198044,
+                22.991217
+              ],
+              [
+                120.198053,
+                22.991243
+              ],
+              [
+                120.198186,
+                22.991575
+              ],
+              [
+                120.198265,
+                22.991773
+              ],
+              [
+                120.19846,
+                22.99232
+              ],
+              [
+                120.198617,
+                22.992757
+              ],
+              [
+                120.198636,
+                22.992811
+              ],
+              [
+                120.198784,
+                22.993263
+              ],
+              [
+                120.198956,
+                22.993788
+              ],
+              [
+                120.198971,
+                22.993834
+              ],
+              [
+                120.199033,
+                22.994022
+              ],
+              [
+                120.199206,
+                22.994517
+              ],
+              [
+                120.199268,
+                22.99478
+              ],
+              [
+                120.199476,
+                22.995651
+              ],
+              [
+                120.199572,
+                22.996061
+              ],
+              [
+                120.199576,
+                22.996079
+              ],
+              [
+                120.199577,
+                22.996084
+              ],
+              [
+                120.199623,
+                22.996188
+              ],
+              [
+                120.200546,
+                22.995855
+              ],
+              [
+                120.201384,
+                22.995558
+              ],
+              [
+                120.20176,
+                22.995424
+              ],
+              [
+                120.201894,
+                22.995783
+              ],
+              [
+                120.201908,
+                22.995819
+              ],
+              [
+                120.201963,
+                22.995966
+              ],
+              [
+                120.201989,
+                22.996037
+              ],
+              [
+                120.202176,
+                22.996181
+              ],
+              [
+                120.202209,
+                22.996267
+              ],
+              [
+                120.202443,
+                22.996875
+              ],
+              [
+                120.202457,
+                22.996912
+              ],
+              [
+                120.20297,
+                22.996718
+              ]
+            ]
+          ]
+        }
+      },
+      "managedBy": {
+        "type": "Property",
+        "value": "南美里里長辦公室"
+      },
+      "archetype": {
+        "type": "Property",
+        "value": "美學先鋒陣營"
+      },
+      "history": {
+        "type": "Property",
+        "value": "擁有全台最高古蹟密度的區域之一，台南美術館二館、國立台灣文學館（原台南州廳）、林百貨等重要文化資產匯聚。"
+      },
+      "zoning": {
+        "type": "Property",
+        "value": "文化與商業核心區，歷史建築與現代展館交織，觀光人潮密集。"
+      },
+      "referencePois": {
+        "type": "Property",
+        "value": [
+          {
+            "poi_id": "POI-NM-001",
+            "name": "台南市美術館二館",
+            "category": "文化場館",
+            "description": "由日本建築師坂茂設計，以碎形屋頂為特色的現代美術館，為台南新地標。",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.2015,
+                22.9945
+              ]
+            }
+          },
+          {
+            "poi_id": "POI-NEW-3876",
+            "name": "",
+            "category": "",
+            "description": "",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.201,
+                22.994
+              ]
+            }
+          }
+        ]
+      },
+      "citizenOpinions": {
+        "type": "Property",
+        "value": [
+          {
+            "issue_id": "WISH-NM-001",
+            "type": "抱怨/通報",
+            "content": "美術館二館周邊假日人潮壅塞，周邊巷弄違停問題嚴重影響救災動線。",
+            "status": "待處理",
+            "timestamp": "2026-06-21T08:30:00Z"
+          }
+        ]
+      },
+      "sourceAgentId": {
+        "type": "Property",
+        "value": "urn:ngsi-ld:EarthGodAgent:Tainan:WestCentral:Nanmei"
+      },
+      "coverageCategories": {
+        "type": "Property",
+        "value": [
+          "daily_activity",
+          "market_event",
+          "local_history",
+          "weather",
+          "hazard",
+          "construction",
+          "traffic",
+          "new_shop",
+          "community_topic"
+        ]
+      },
+      "contactChannel": {
+        "type": "Property",
+        "value": "router"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:social-rainy-cwest-20260405",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T12:30:00+08:00",
+      "modifiedAt": "2026-06-23T12:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "social-rainy-cwest-20260405"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Nanmei"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-nanmei"
+      },
+      "category": {
+        "type": "Property",
+        "value": "community_topic"
+      },
+      "name": {
+        "type": "Property",
+        "value": "社群整理：中西區雨天室內景點清單"
+      },
+      "description": {
+        "type": "Property",
+        "value": "手動截圖列出創意積木夢工場、瘋狂方格、西市場、日內、南埕衖事、林百貨、Old Town Photo、又又美等地點；現況需向店家確認。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.202,
+            22.9946
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9946,
+          "longitude": 120.202,
+          "address": "台南市中西區（多店清單；精確地址待確認）",
+          "district": "中西區",
+          "neighborhood": "南美里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "manual",
+          "name": "Threads 公開貼文手動截圖",
+          "url": null,
+          "reference_id": "S__46022667_0.jpg"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-04-05T12:00:00+08:00",
+        "observedAt": "2026-04-05T12:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T12:30:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "雨天",
+          "室內景點",
+          "中西區",
+          "清單",
+          "手動截圖"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.62
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 6070
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:sim-weather-20260623-li-nanmei",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T13:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "sim-weather-20260623-li-nanmei"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Nanmei"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-nanmei"
+      },
+      "category": {
+        "type": "Property",
+        "value": "weather"
+      },
+      "name": {
+        "type": "Property",
+        "value": "南美里模擬天氣：34.1°C"
+      },
+      "description": {
+        "type": "Property",
+        "value": "六月台南夏季氣候情境推估：晴時多雲；氣溫 34.1°C、相對濕度 72%、風速約 1.7 m/s。資料為情境模擬，供介面測試與體驗使用。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2015,
+            22.9945
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9945,
+          "longitude": 120.2015,
+          "address": "臺南市中西區南美里（氣象情境點位）",
+          "district": "中西區",
+          "neighborhood": "南美里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "台南夏季氣候情境 mock（推估）",
+          "url": null,
+          "reference_id": "simulated-weather-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00",
+        "observedAt": "2026-06-23T13:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "天氣",
+          "模擬",
+          "情境推估",
+          "台南夏季情境",
+          "氣溫",
+          "相對濕度",
+          "風速",
+          "高溫",
+          "日照"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.35
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    }
+  ]
+}

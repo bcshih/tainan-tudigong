@@ -1,0 +1,395 @@
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    {
+      "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+      "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+      "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+      "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+      "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Fuqian",
+      "type": "VillageAgent",
+      "agentId": {
+        "type": "Property",
+        "value": "li-fuqian"
+      },
+      "name": {
+        "type": "Property",
+        "value": "府前里地基主"
+      },
+      "persona": {
+        "type": "Property",
+        "value": "端莊優雅、注重禮儀。對司法博物館與愛國婦人館的建築之美讚嘆不已，期望府前路成為台南的文化大道。對街道景觀與建築風格的協調性非常堅持。"
+      },
+      "district": {
+        "type": "Property",
+        "value": "中西區"
+      },
+      "areaName": {
+        "type": "Property",
+        "value": "府前里"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2015,
+            22.9875
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9875,
+          "longitude": 120.2015,
+          "address": "臺南市中西區府前里",
+          "district": "中西區",
+          "neighborhood": "府前里"
+        }
+      },
+      "spatialBoundary": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.193295,
+                22.994104
+              ],
+              [
+                120.193585,
+                22.994022
+              ],
+              [
+                120.194259,
+                22.993885
+              ],
+              [
+                120.194236,
+                22.993699
+              ],
+              [
+                120.194669,
+                22.993576
+              ],
+              [
+                120.195319,
+                22.993455
+              ],
+              [
+                120.195334,
+                22.993452
+              ],
+              [
+                120.196034,
+                22.993312
+              ],
+              [
+                120.197395,
+                22.993053
+              ],
+              [
+                120.198587,
+                22.992821
+              ],
+              [
+                120.1986,
+                22.992818
+              ],
+              [
+                120.198636,
+                22.992811
+              ],
+              [
+                120.198617,
+                22.992757
+              ],
+              [
+                120.19846,
+                22.99232
+              ],
+              [
+                120.198265,
+                22.991773
+              ],
+              [
+                120.198186,
+                22.991575
+              ],
+              [
+                120.198053,
+                22.991243
+              ],
+              [
+                120.198044,
+                22.991217
+              ],
+              [
+                120.198002,
+                22.991097
+              ],
+              [
+                120.197988,
+                22.991058
+              ],
+              [
+                120.19792,
+                22.990863
+              ],
+              [
+                120.197807,
+                22.990565
+              ],
+              [
+                120.197787,
+                22.990507
+              ],
+              [
+                120.19769,
+                22.990227
+              ],
+              [
+                120.197682,
+                22.990196
+              ],
+              [
+                120.196994,
+                22.990191
+              ],
+              [
+                120.195386,
+                22.99053
+              ],
+              [
+                120.191011,
+                22.991393
+              ],
+              [
+                120.19102,
+                22.99143
+              ],
+              [
+                120.191093,
+                22.991741
+              ],
+              [
+                120.191132,
+                22.991907
+              ],
+              [
+                120.191681,
+                22.994433
+              ],
+              [
+                120.193295,
+                22.994104
+              ]
+            ]
+          ]
+        }
+      },
+      "managedBy": {
+        "type": "Property",
+        "value": "府前里里長辦公室"
+      },
+      "archetype": {
+        "type": "Property",
+        "value": "官署風華陣營"
+      },
+      "history": {
+        "type": "Property",
+        "value": "府前路沿線歷史建築密集，司法博物館（原台南地方法院）為壯觀的巴洛克式建築，愛國婦人館為日治時期建築現轉型文創中心。"
+      },
+      "zoning": {
+        "type": "Property",
+        "value": "行政與文化核心區，歷史建築與現代辦公混合，環境整潔有序。"
+      },
+      "referencePois": {
+        "type": "Property",
+        "value": [
+          {
+            "poi_id": "POI-FQ-001",
+            "name": "司法博物館",
+            "category": "文化場館",
+            "description": "原台南地方法院，壯觀的巴洛克式建築，為台南地標級國定古蹟。",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.2015,
+                22.9875
+              ]
+            }
+          },
+          {
+            "poi_id": "POI-NEW-2864",
+            "name": "",
+            "category": "",
+            "description": "",
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                120.201,
+                22.987
+              ]
+            }
+          }
+        ]
+      },
+      "citizenOpinions": {
+        "type": "Property",
+        "value": [
+          {
+            "issue_id": "WISH-FQ-001",
+            "type": "抱怨/通報",
+            "content": "府前路部分路段人行道鋪面老舊破損，輪椅與嬰兒車通行困難。",
+            "status": "待處理",
+            "timestamp": "2026-06-21T08:30:00Z"
+          }
+        ]
+      },
+      "sourceAgentId": {
+        "type": "Property",
+        "value": "urn:ngsi-ld:EarthGodAgent:Tainan:WestCentral:Fuqian"
+      },
+      "coverageCategories": {
+        "type": "Property",
+        "value": [
+          "daily_activity",
+          "market_event",
+          "local_history",
+          "weather",
+          "hazard",
+          "construction",
+          "traffic",
+          "new_shop",
+          "community_topic"
+        ]
+      },
+      "contactChannel": {
+        "type": "Property",
+        "value": "router"
+      }
+    },
+    {
+      "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+        {
+          "@vocab": "https://digital-tudigong.example.org/ngsi-ld/",
+          "VillageAgent": "https://digital-tudigong.example.org/ngsi-ld/VillageAgent",
+          "VillageAgentDataset": "https://digital-tudigong.example.org/ngsi-ld/VillageAgentDataset",
+          "LocalObservation": "https://digital-tudigong.example.org/ngsi-ld/LocalObservation",
+          "TudigongRouteResult": "https://digital-tudigong.example.org/ngsi-ld/TudigongRouteResult"
+        }
+      ],
+      "id": "urn:ngsi-ld:LocalObservation:Tainan:sim-weather-20260623-li-fuqian",
+      "type": "LocalObservation",
+      "createdAt": "2026-06-23T13:00:00+08:00",
+      "modifiedAt": "2026-06-23T15:30:00+08:00",
+      "observationId": {
+        "type": "Property",
+        "value": "sim-weather-20260623-li-fuqian"
+      },
+      "agent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:VillageAgent:Tainan:WestCentral:Fuqian"
+      },
+      "agentId": {
+        "type": "Property",
+        "value": "li-fuqian"
+      },
+      "category": {
+        "type": "Property",
+        "value": "weather"
+      },
+      "name": {
+        "type": "Property",
+        "value": "府前里模擬天氣：33.8°C"
+      },
+      "description": {
+        "type": "Property",
+        "value": "六月台南夏季氣候情境推估：晴時多雲；氣溫 33.8°C、相對濕度 74%、風速約 1.8 m/s。資料為情境模擬，供介面測試與體驗使用。"
+      },
+      "location": {
+        "type": "GeoProperty",
+        "value": {
+          "type": "Point",
+          "coordinates": [
+            120.2015,
+            22.9875
+          ]
+        }
+      },
+      "address": {
+        "type": "Property",
+        "value": {
+          "latitude": 22.9875,
+          "longitude": 120.2015,
+          "address": "臺南市中西區府前里（氣象情境點位）",
+          "district": "中西區",
+          "neighborhood": "府前里"
+        }
+      },
+      "source": {
+        "type": "Property",
+        "value": {
+          "kind": "mock",
+          "name": "台南夏季氣候情境 mock（推估）",
+          "url": null,
+          "reference_id": "simulated-weather-20260623"
+        }
+      },
+      "occurredAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00",
+        "observedAt": "2026-06-23T13:00:00+08:00"
+      },
+      "collectedAt": {
+        "type": "Property",
+        "value": "2026-06-23T13:00:00+08:00"
+      },
+      "tags": {
+        "type": "Property",
+        "value": [
+          "天氣",
+          "模擬",
+          "情境推估",
+          "台南夏季情境",
+          "氣溫",
+          "相對濕度",
+          "風速",
+          "高溫",
+          "悶熱"
+        ]
+      },
+      "confidence": {
+        "type": "Property",
+        "value": 0.35
+      },
+      "engagement": {
+        "type": "Property",
+        "value": 0
+      },
+      "status": {
+        "type": "Property",
+        "value": "active"
+      }
+    }
+  ]
+}

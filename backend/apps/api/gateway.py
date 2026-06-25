@@ -472,7 +472,13 @@ async def _run_pipeline(
         app_name="deg", user_id="gateway", session_id=session_id
     )
     mood = get_random_mood()
-    msg_text = task.model_dump_json() + f"\n\n【今日神明心情】{mood}"
+    days = (task.travel_context.duration_days if task.travel_context else None) or 1
+    day_banner = (
+        f"\n\n【⚠️ 行程天數強制要求】旅人明確要求 {days} 天的行程。"
+        f"itinerary 節點的 day 欄位必須從 1 到 {days}，"
+        f"每天至少 3 個節點，絕對不得全部都是 day=1。"
+    )
+    msg_text = task.model_dump_json() + day_banner + f"\n\n【今日神明心情】{mood}"
     msg = genai_types.Content(
         role="user", parts=[genai_types.Part(text=msg_text)]
     )

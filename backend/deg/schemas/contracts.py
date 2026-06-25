@@ -40,6 +40,7 @@ class TravelContext(BaseModel):
 
     trip_type: str | None = None            # solo / couple / family / group
     travel_date: str | None = None          # 旅遊時間 (free text, e.g. "週末下午")
+    duration_days: int | None = None        # 行程天數 (e.g. 1, 2, 3)
     party_size: int | None = None           # 人數
     has_elderly: bool | None = None         # 有老人
     has_children: bool | None = None        # 有小孩

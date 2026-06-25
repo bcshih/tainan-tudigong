@@ -12,12 +12,24 @@ is `docs/integration/frontend-api-contract.md`.
 
 from __future__ import annotations
 
+import os
+from datetime import date, timedelta
 from typing import Any
 
 from deg.schemas import BiddingProposal, DebateMessage, ItineraryStop, Poi
 
 # All 20 里 in the dataset are in Tainan's West Central District.
 _DISTRICT = "中西區"
+_MAPS_KEY = os.getenv("GOOGLE_MAPS_API_KEY", "")
+
+
+def _streetview_url(lat: float, lng: float) -> str | None:
+    if not _MAPS_KEY:
+        return None
+    return (
+        f"https://maps.googleapis.com/maps/api/streetview"
+        f"?size=400x300&location={lat},{lng}&key={_MAPS_KEY}"
+    )
 
 
 def poi_to_spot(
@@ -37,7 +49,7 @@ def poi_to_spot(
     tags = list(poi.tags)
     if poi.category and poi.category not in tags:
         tags.append(poi.category)
-    return {
+    result: dict[str, Any] = {
         "id": spot_id or f"{village}-{poi.name}",
         "name": poi.name,
         "district": _DISTRICT,
@@ -49,6 +61,10 @@ def poi_to_spot(
         "lat": poi.location.lat,
         "lng": poi.location.lng,
     }
+    img = _streetview_url(poi.location.lat, poi.location.lng)
+    if img:
+        result["imageUrl"] = img
+    return result
 
 
 def itinerary_to_days(
@@ -83,7 +99,8 @@ def itinerary_to_days(
                 "durationMinutes": stop.duration_mins,
                 "note": stop.transit_to_next or "",
             })
-        days.append({"day": day, "items": items})
+        day_date = (date.today() + timedelta(days=day - 1)).isoformat()
+        days.append({"day": day, "date": day_date, "items": items})
     return days
 
 

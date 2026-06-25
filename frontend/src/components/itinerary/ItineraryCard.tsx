@@ -92,7 +92,7 @@ export function ItineraryCard({ item, isFirst }: Props) {
   const [pendingSuggestion, setPendingSuggestion] = useState<ReplacementSuggestion | null>(null);
 
   const suggestions = activeReplacements?.suggestions ?? MOCK_SUGGESTIONS;
-  const photo = getPhoto(item.spot.id);
+  const photo = item.spot.imageUrl || getPhoto(item.spot.id);
 
   // Step 1: delete → flip
   const handleDelete = () => {

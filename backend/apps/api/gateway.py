@@ -288,14 +288,8 @@ async def _run_scout_round(
     # Sort descending by confidence_score
     results.sort(key=lambda x: x.confidence_score, reverse=True)
     
-    # Determine how many agents to select based on duration
-    days = 1
-    if task.travel_context and task.travel_context.travel_date:
-        # crude heuristic
-        if "兩天" in task.travel_context.travel_date or "三天" in task.travel_context.travel_date or "2天" in task.travel_context.travel_date:
-            days = 2
-    
-    select_count = 5 if days == 1 else 8
+    days = (task.travel_context.duration_days if task.travel_context else None) or 1
+    select_count = max(5, days * 4)  # 4 agents per day gives enough POI variety
     top_agents = results[:select_count]
     if not top_agents:
         raise RuntimeError("所有地基主均放棄投標。")

@@ -236,7 +236,7 @@ export function AgentEditorPage() {
       </div>
 
       {/* ── Main Editor ── */}
-      <div style={{ flex: 1, overflowY: "auto", padding: "20px 24px" }}>
+      <div style={{ flex: 1, overflow: "hidden", padding: "20px 24px", display: "flex", flexDirection: "column" }}>
         {!draft && !loading && (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--text-dim)", gap: 12 }}>
             <span style={{ fontSize: "3rem" }}>⬅️</span>
@@ -248,54 +248,60 @@ export function AgentEditorPage() {
         )}
 
         {draft && !loading && (
-          <div style={{ maxWidth: 720 }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
             {/* ── Header ── */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-              <h2 style={{ fontFamily: "var(--font-serif)", color: "var(--gold)", fontSize: "1.4rem", margin: 0 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16, flexShrink: 0 }}>
+              <h2 style={{ fontFamily: "var(--font-serif)", color: "var(--gold)", fontSize: "1.3rem", margin: 0 }}>
                 🏠 {draft.name || draft.filename}
               </h2>
               <button type="button" onClick={saveAgent}
                 style={{
-                  padding: "9px 22px", borderRadius: "var(--r-pill)",
+                  padding: "8px 22px", borderRadius: "var(--r-pill)",
                   background: saveStatus === "ok" ? "#16a34a" : "var(--gold)",
-                  color: "#000", fontWeight: 700, fontSize: "0.9rem", border: "none", cursor: "pointer",
+                  color: "#000", fontWeight: 700, fontSize: "0.88rem", border: "none", cursor: "pointer",
                 }}>
                 {saveStatus === "saving" ? "儲存中…" : saveStatus === "ok" ? "✅ 已儲存" : "💾 儲存"}
               </button>
             </div>
 
-            {/* ── VillageAgent fields ── */}
-            <section style={{ background: "var(--bg-elevated)", borderRadius: "var(--r-lg)", padding: "18px 20px", marginBottom: 20, border: "1px solid var(--glass-border)" }}>
-              <h3 style={{ color: "var(--text-secondary)", fontSize: "0.75rem", letterSpacing: "0.1em", marginBottom: 14, textTransform: "uppercase" }}>街區代理人</h3>
-              <Field label="Agent ID" value={draft.agentId} onChange={(v) => setDraft({ ...draft, agentId: v })} />
-              <Field label="里名稱" value={draft.name} onChange={(v) => setDraft({ ...draft, name: v })} />
-              <Field label="神明性格 (影響回答語氣)" value={draft.persona} onChange={(v) => setDraft({ ...draft, persona: v })} />
-              <Field label="街區歷史概述" value={draft.history} onChange={(v) => setDraft({ ...draft, history: v })} multiline />
-            </section>
+            {/* ── Two-column body ── */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, flex: 1, minHeight: 0 }}>
 
-            {/* ── Observations ── */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
-              <h3 style={{ color: "var(--text-primary)", fontSize: "1rem", margin: 0 }}>
-                📌 在地觀察 ({draft.observations.length} 筆，不含天氣)
-              </h3>
-              <button type="button" onClick={addObs}
-                style={{ padding: "6px 16px", borderRadius: "var(--r-pill)", background: "rgba(74,222,128,0.15)", border: "1px solid #4ade80", color: "#4ade80", fontSize: "0.82rem", cursor: "pointer", fontWeight: 700 }}>
-                ＋ 新增
-              </button>
-            </div>
+              {/* Left: VillageAgent fields */}
+              <section style={{ background: "var(--bg-elevated)", borderRadius: "var(--r-lg)", padding: "18px 20px", border: "1px solid var(--glass-border)", overflowY: "auto" }}>
+                <h3 style={{ color: "var(--text-dim)", fontSize: "0.7rem", letterSpacing: "0.1em", marginBottom: 16, textTransform: "uppercase", margin: "0 0 14px" }}>基礎設定</h3>
+                <Field label="Agent ID" value={draft.agentId} onChange={(v) => setDraft({ ...draft, agentId: v })} />
+                <Field label="里名稱" value={draft.name} onChange={(v) => setDraft({ ...draft, name: v })} />
+                <Field label="神明性格 (影響回答語氣)" value={draft.persona} onChange={(v) => setDraft({ ...draft, persona: v })} />
+                <Field label="街區歷史概述" value={draft.history} onChange={(v) => setDraft({ ...draft, history: v })} multiline />
+              </section>
 
-            {draft.observations.map((obs) => (
-              <ObsCard key={obs._key} obs={obs}
-                onChange={(patch) => updateObs(obs._key, patch)}
-                onRemove={() => removeObs(obs._key)}
-              />
-            ))}
-
-            {draft.observations.length === 0 && (
-              <div style={{ textAlign: "center", padding: "32px 0", color: "var(--text-dim)", fontSize: "0.9rem" }}>
-                尚無觀察記錄。點「＋ 新增」加入景點或活動。
+              {/* Right: Observations */}
+              <div style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10, flexShrink: 0 }}>
+                  <h3 style={{ color: "var(--text-primary)", fontSize: "0.95rem", margin: 0 }}>
+                    📌 在地觀察 <span style={{ color: "var(--text-dim)", fontWeight: 400, fontSize: "0.8rem" }}>({draft.observations.length} 筆)</span>
+                  </h3>
+                  <button type="button" onClick={addObs}
+                    style={{ padding: "5px 14px", borderRadius: "var(--r-pill)", background: "rgba(74,222,128,0.15)", border: "1px solid #4ade80", color: "#4ade80", fontSize: "0.8rem", cursor: "pointer", fontWeight: 700 }}>
+                    ＋ 新增
+                  </button>
+                </div>
+                <div style={{ flex: 1, overflowY: "auto" }}>
+                  {draft.observations.map((obs) => (
+                    <ObsCard key={obs._key} obs={obs}
+                      onChange={(patch) => updateObs(obs._key, patch)}
+                      onRemove={() => removeObs(obs._key)}
+                    />
+                  ))}
+                  {draft.observations.length === 0 && (
+                    <div style={{ textAlign: "center", padding: "40px 0", color: "var(--text-dim)", fontSize: "0.88rem" }}>
+                      尚無觀察記錄。點「＋ 新增」加入景點或活動。
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
+            </div>
           </div>
         )}
       </div>

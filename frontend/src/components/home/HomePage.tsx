@@ -41,6 +41,17 @@ export function HomePage() {
         <span style={{fontSize:"0.7rem",color:"var(--text-dim)",letterSpacing:"0.1em",textAlign:"center"}}>
           ⛩️ 土地公、月老、媽祖、財神爺、關聖帝君、文昌帝君 齊聚府城・護佑平安 ⛩️
         </span>
+        <button type="button" onClick={()=>setPage("edit")}
+          style={{
+            marginTop:10,padding:"7px 20px",borderRadius:"var(--r-pill)",
+            background:"transparent",border:"1px solid rgba(255,255,255,0.15)",
+            color:"var(--text-dim)",fontSize:"0.72rem",letterSpacing:"0.08em",
+            cursor:"pointer",transition:"var(--t)",
+          }}
+          onMouseEnter={e=>(e.currentTarget.style.borderColor="rgba(255,215,0,0.4)")}
+          onMouseLeave={e=>(e.currentTarget.style.borderColor="rgba(255,255,255,0.15)")}>
+          ✏️ 地基主管理
+        </button>
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ for _p in (_REPO_ROOT, _REPO_ROOT / "agents"):
 from dotenv import load_dotenv  # noqa: E402
 load_dotenv(_REPO_ROOT / ".env")
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect  # noqa: E402
+from fastapi import FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect  # noqa: E402
 from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
 from google.adk.runners import Runner  # noqa: E402
 from google.adk.sessions import InMemorySessionService  # noqa: E402
@@ -1547,6 +1547,41 @@ def create_app() -> FastAPI:
             raise RuntimeError("神明未給出指點，請再擲一次。")
         reading = DivinationReading.model_validate_json(_extract_json(text))
         return reading.model_dump()
+
+    # ── Agent Editor API ──────────────────────────────────────────────────────
+    _AGENT_DIR = Path(__file__).resolve().parents[2] / "dijizu_agent_new"
+
+    @app.get("/api/editor/agents")
+    async def editor_list_agents() -> list[str]:
+        """List all agent JSON filenames."""
+        if not _AGENT_DIR.exists():
+            return []
+        return sorted(f.name for f in _AGENT_DIR.glob("*.json"))
+
+    @app.get("/api/editor/agents/{filename}")
+    async def editor_get_agent(filename: str):
+        """Return raw JSON of one agent file."""
+        from fastapi.responses import JSONResponse  # noqa: PLC0415
+        if "/" in filename or "\\" in filename:
+            raise HTTPException(400, "Invalid filename")
+        fp = _AGENT_DIR / filename
+        if not fp.exists():
+            raise HTTPException(404, f"Not found: {filename}")
+        return JSONResponse(content=json.loads(fp.read_text(encoding="utf-8")))
+
+    @app.post("/api/editor/agents/{filename}")
+    async def editor_save_agent(filename: str, request: Request) -> dict:
+        """Overwrite one agent file with the posted JSON."""
+        if "/" in filename or "\\" in filename:
+            raise HTTPException(400, "Invalid filename")
+        try:
+            data = await request.json()
+        except Exception:
+            raise HTTPException(400, "Invalid JSON")
+        _AGENT_DIR.mkdir(parents=True, exist_ok=True)
+        fp = _AGENT_DIR / filename
+        fp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        return {"status": "success", "file": filename}
 
     return app
 

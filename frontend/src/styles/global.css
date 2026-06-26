@@ -1022,8 +1022,21 @@ input,textarea{font-family:var(--font-body);font-size:var(--fs-body)}
   /* ── Map popup ── */
   .popup-inner { min-width: 130px; max-width: 190px; padding: 10px 12px; }
 
-  /* ── Weather POE panel ── */
-  .weather-poe-panel { width: calc(100vw - 28px); right: 14px; left: 14px; }
+  /* ── Weather POE panel: fullscreen modal on mobile ── */
+  .weather-poe-panel {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    z-index: 600 !important;
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding-top: 48px;
+  }
 }
 
 /* ── Extra-small phones (≤ 390px) ── */

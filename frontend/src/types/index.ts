@@ -44,4 +44,4 @@ export interface WSMessage {
   payload: unknown;
 }
 
-export type AppPage = "home" | "you" | "qian" | "wen" | "yuan" | "yi" | "fu";
+export type AppPage = "home" | "you" | "qian" | "wen" | "yuan" | "yi" | "fu" | "edit";

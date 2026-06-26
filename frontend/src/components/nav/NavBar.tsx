@@ -9,6 +9,7 @@ const NAV_ITEMS: { id:AppPage; char:string; name:string }[] = [
   { id:"yuan", char:"願", name:"還心願" },
   { id:"yi",   char:"議", name:"廟口議" },
   { id:"fu",   char:"府", name:"府城報" },
+  { id:"edit", char:"✏️", name:"編輯" },
 ];
 
 export function NavBar() {

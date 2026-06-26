@@ -9,6 +9,7 @@ import { WenPage } from "./components/wen/WenPage";
 import { WishPage } from "./components/wish/WishPage";
 import { FuPage } from "./components/fu/FuPage";
 import { YiPage } from "./components/yi/YiPage";
+import { AgentEditorPage } from "./components/editor/AgentEditorPage";
 import "./styles/global.css";
 
 import { useRealAgentWS } from "./hooks/useWebSocket";
@@ -46,6 +47,7 @@ export default function App() {
             {page==="yuan" && <WishPage/>}
             {page==="yi"   && <YiPage/>}
             {page==="fu"   && <FuPage/>}
+            {page==="edit" && <AgentEditorPage/>}
           </div>
           <NavBar/>
         </>
